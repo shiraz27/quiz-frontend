@@ -31,11 +31,12 @@ const styles = {
 	logoText: {
 		fontWeight: '700',
 		color: 'white',
-		verticalAlign: 'sub',
+		verticalAlign: 'middle',
 		marginLeft: '5px',
 		background: 'rgb(194, 176, 255)',
 		padding: '5px',
-		borderBottom: '#8766fa 5px solid'
+		borderBottom: '#8766fa 5px solid',
+		fontSize: '0.75em'
 	},
 	navBox: {
 		borderBottom: '2px solid #d9e0e6ff'
