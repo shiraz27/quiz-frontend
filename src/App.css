@@ -20,3 +20,8 @@
 .App-link {
 	color: #61dafb;
 }
+
+/* Progres bar*/
+.progress-bar {
+	background-color: transparent !important;
+}

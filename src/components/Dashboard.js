@@ -183,4 +183,3 @@ const styles = {
 		height: '20vmin'
 	}
 };
-// export default Dashboard;
