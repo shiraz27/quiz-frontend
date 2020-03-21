@@ -5,7 +5,7 @@ import '../App.css';
 export default function Quiz() {
 	return (
 		<div>
-			<NavbarTop />
+			{/* <NavbarTop /> */}
 			<div style={styles.container}>
 				<Progress />
 				<h1 style={styles.question}>Match the pairs 1+1= ?</h1>
@@ -14,6 +14,7 @@ export default function Quiz() {
 				<Answer />
 				<Answer />
 				<Answer />
+				<div style={styles.hl} />
 				<Check />
 			</div>
 		</div>
@@ -130,5 +131,10 @@ const styles = {
 		fontFamily: 'din-round, sans-serif',
 		margin: '0',
 		paddingVertical: '1rem'
+	},
+	hl: {
+		border: '1px solid #d9e0e6ff',
+		width: '100%',
+		marginTop: '4rem'
 	}
 };
