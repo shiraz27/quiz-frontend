@@ -1,3 +1,7 @@
+@font-face {
+	font-family: 'din-round';
+	src: local('din'), url(./fonts/din.otf) format('opentype');
+}
 .App {
 	text-align: center;
 }

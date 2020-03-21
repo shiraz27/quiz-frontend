@@ -93,16 +93,7 @@ function LessonTitle(props) {
 function Level(props) {
 	return (
 		<div style={styles.level}>
-			<p
-				style={{
-					fontWeight: '700',
-					color: 'white',
-					fontFamily: 'din-round, sans-serif',
-					margin: '0'
-				}}
-			>
-				Level 1
-			</p>
+			<p style={styles.levelText}>Level 1</p>
 		</div>
 	);
 }
@@ -181,5 +172,11 @@ const styles = {
 	},
 	trophy: {
 		height: '20vmin'
+	},
+	levelText: {
+		fontWeight: '700',
+		color: 'white',
+		fontFamily: 'din-round, sans-serif',
+		margin: '0'
 	}
 };
