@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
+
+//components
 import NavbarTop from './NavbarTop';
 
+//resources
 import badgedisabled from '../img/badgedisabled.svg';
 import badgeenabled from '../img/badgeenabled.svg';
 import lessonicon from '../img/lessonicon.svg';
 import lessonicon2 from '../img/lessonicon2.svg';
-import trophy from '../img/trophy.svg';
+import trophyenabled from '../img/trophy.svg';
 import trophydisabled from '../img/trophydisabled.svg';
 
+//data
 let lessoList = [
 	{
 		id: 0,
@@ -37,10 +41,8 @@ let lessoList = [
 
 export default function Dashboard() {
 	return (
-		<article>
-			<header>
-				<NavbarTop />
-			</header>
+		<div>
+			<NavbarTop />
 			<body>
 				<div style={styles.container}>
 					<Level />
@@ -52,14 +54,7 @@ export default function Dashboard() {
 						/>
 					))}
 				</div>
-				<div style={styles.container}>
-					<img
-						src={trophy}
-						style={{
-							height: '20vmin'
-						}}
-					/>
-				</div>
+				<Trophy won={true} />
 				<div style={styles.container}>
 					<Level />
 					{lessoList.map(lesson => (
@@ -70,31 +65,16 @@ export default function Dashboard() {
 						/>
 					))}
 				</div>
-				<div style={styles.container}>
-					<img
-						src={trophydisabled}
-						style={{
-							height: '20vmin'
-						}}
-					/>
-				</div>
+				<Trophy won={false} />
 			</body>
-		</article>
+		</div>
 	);
 }
 
 function LessonElement(props) {
 	return (
 		<div style={styles.container}>
-			<img
-				src={props.lessonImg}
-				style={{
-					height: '20vmin',
-					background: 'aliceblue',
-					borderRadius: '50%',
-					padding: '20px'
-				}}
-			/>
+			<img src={props.lessonImg} style={styles.lessonImg} />
 			<LessonTitle badge={props.badge} title={props.title} />
 		</div>
 	);
@@ -103,24 +83,9 @@ function LessonElement(props) {
 function LessonTitle(props) {
 	return (
 		<div style={styles.rowContainer}>
-			<img
-				src={props.badge}
-				style={{
-					height: '5vmin'
-				}}
-			/>
+			<img src={props.badge} style={styles.badge} />
 			<div style={styles.vl}></div>
-
-			<p
-				style={{
-					fontWeight: '700',
-					color: 'rgb(87, 86, 92)',
-					fontFamily: 'din-round, sans-serif',
-					margin: '0'
-				}}
-			>
-				{props.title}
-			</p>
+			<p style={styles.lessonTitle}>{props.title}</p>
 		</div>
 	);
 }
@@ -141,6 +106,20 @@ function Level(props) {
 		</div>
 	);
 }
+
+function Trophy(props) {
+	return (
+		<div style={styles.container}>
+			{props.won ? (
+				<img src={trophyenabled} style={styles.trophy} />
+			) : (
+				<img src={trophydisabled} style={styles.trophy} />
+			)}
+		</div>
+	);
+}
+
+//CSS styles
 const styles = {
 	defaultFontFamily: {
 		fontFamily: 'din-round, sans-serif'
@@ -186,6 +165,22 @@ const styles = {
 		position: 'absolute',
 		right: '0',
 		height: 'fit-content'
+	},
+	lessonImg: {
+		height: '20vmin',
+		background: 'aliceblue',
+		borderRadius: '50%',
+		padding: '20px'
+	},
+	badge: { height: '5vmin' },
+	lessonTitle: {
+		fontWeight: '700',
+		color: 'rgb(87, 86, 92)',
+		fontFamily: 'din-round, sans-serif',
+		margin: '0'
+	},
+	trophy: {
+		height: '20vmin'
 	}
 };
 // export default Dashboard;
