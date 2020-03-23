@@ -27,13 +27,13 @@ let lessoList = [
 	},
 	{
 		id: 1,
-		title: 'Core training',
+		title: 'Intermediate training',
 		badgeImg: badgedisabled,
 		lessonImg: lessonicon2
 	},
 	{
 		id: 1,
-		title: 'Core training',
+		title: 'Advanced training',
 		badgeImg: badgedisabled,
 		lessonImg: lessonicon2
 	}

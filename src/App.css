@@ -2,7 +2,8 @@
 	font-family: 'din-round';
 	src: local('din'), url(./fonts/din.otf) format('opentype');
 }
-.App {
+
+/* .App {
 	text-align: center;
 }
 
@@ -23,9 +24,20 @@
 
 .App-link {
 	color: #61dafb;
-}
+} */
 
+/*______________________Landing component______________________*/
+/*______________________Dashboard component______________________*/
+/* ______________________Quiz component______________________*/
 /* Progres bar*/
 .progress-bar {
 	background-color: transparent !important;
+	/* display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: '50%'; */
 }
+.progress-bar-rect-wrapper {
+	/* width: '50%' !important; */
+}
+/* Quiz component:  answer is checked*/
