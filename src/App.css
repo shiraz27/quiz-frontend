@@ -3,41 +3,15 @@
 	src: local('din'), url(./fonts/din.otf) format('opentype');
 }
 
-/* .App {
-	text-align: center;
-}
-
-.App-logo {
-	height: 8vmin;
-}
-
-.App-header {
-	background-color: #282c34;
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	font-size: calc(10px + 2vmin);
-	color: white;
-}
-
-.App-link {
-	color: #61dafb;
-} */
-
 /*______________________Landing component______________________*/
 /*______________________Dashboard component______________________*/
 /* ______________________Quiz component______________________*/
 /* Progres bar*/
 .progress-bar {
 	background-color: transparent !important;
-	/* display: flex;
-	flex-direction: column;
-	align-items: center;
-	width: '50%'; */
 }
-.progress-bar-rect-wrapper {
-	/* width: '50%' !important; */
+
+.dropdown-item {
+	background-color: white !important;
+	color: rgb(87, 86, 92) !important;
 }
-/* Quiz component:  answer is checked*/

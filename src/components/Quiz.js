@@ -38,6 +38,40 @@ let answerList = [
 	}
 ];
 
+//we could do a general test based on difficulty(like language level, all questions in db)
+//we could do tests based on level(or chapter or whatever you call it, all questions in level)
+//we could do tests based on the less accurate level(all weak || less accurate questions)
+//we could do tests based on the most probably forgotter
+//we could do tests based on the least repeated question || level
+
+let questionBank = [
+	{
+		question: { title: 'Match the pairs 1+1= ?', answerList: answerList },
+		id: '',
+		difficulty: '', //an integer from 1 to 10
+		nRepetition: '', //tested or not tested nRepetition > 0
+		nCorrect: '',
+		accuracyRate: '(nCorrect * 100) / nRepetition', //
+		reminderDate: '', //last time revised
+		skippable: true,
+		correct: true,
+		level: {
+			id: '',
+			title: '',
+			difficulty: '',
+			accuracyRate: '',
+			reminderDate: '',
+			order: '' //an infinite incremental integer, ascendant. marking how many levels
+		},
+		course: {
+			id: '',
+			title: '',
+			accuracyRate: '',
+			order: '' //an infinite incremental integer
+		}
+	}
+];
+
 export default function Quiz() {
 	// const handleShow = () => setShow(true);
 	return (
@@ -89,7 +123,6 @@ function Answer(props) {
 	const handleCheckedTrue = () => setChecked(true);
 	const handleCheckedFalse = () => setChecked(false);
 
-	//
 	const [show, setShow] = useState(false);
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
@@ -132,6 +165,14 @@ function Answer(props) {
 							handleCheckedTrue();
 							handleClose();
 						}}
+						style={{
+							color: '#fff',
+							backgroundColor: '#28a745',
+							borderWidth: '2px 2px 6px',
+							borderStyle: 'solid',
+							borderColor: '#24913d',
+							borderRadius: '16px'
+						}}
 					>
 						True
 					</Button>
@@ -140,6 +181,14 @@ function Answer(props) {
 						onClick={() => {
 							handleCheckedFalse();
 							handleClose();
+						}}
+						style={{
+							color: '#fff',
+							backgroundColor: '#dc3545',
+							borderWidth: '2px 2px 6px',
+							borderStyle: 'solid',
+							borderColor: '#b1313d',
+							borderRadius: '16px'
 						}}
 					>
 						False
