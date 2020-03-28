@@ -1,79 +1,195 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ProgressBar from 'react-animated-progress-bar';
 import { IoMdClose } from 'react-icons/io';
 import '../App.css';
 import { Modal, Button } from 'react-bootstrap/';
 
-let answerList = [
-	{
-		id: 0,
-		text: 'answer 1',
-		videoLink: 'https://www.youtube.com/embed/A9gw8fRr87o',
-		type: 'video',
-		question: ''
-	},
-	{
-		id: 1,
-		text: 'answer 2',
-		videoLink: 'https://www.youtube.com/embed/TVKfpKXS0Cg',
-		imageLink: 'badgedisabled',
-		type: 'video'
-	},
-	{
-		id: 2,
-		text: 'answer 3',
-		videoLink: '',
-		imageLink:
-			'https://www.elprocus.com/wp-content/uploads/2014/03/circuits.gif',
-		type: 'image'
-	},
-	{
-		id: 3,
-		text:
-			'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.',
-		videoLink: '',
-		imageLink: '',
-		type: ''
-	}
-];
-
-//we could do a general test based on difficulty(like language level, all questions in db)
-//we could do tests based on level(or chapter or whatever you call it, all questions in level)
-//we could do tests based on the less accurate level(all weak || less accurate questions)
-//we could do tests based on the most probably forgotter
-//we could do tests based on the least repeated question || level
-
-let questionBank = [
-	{
-		question: { title: 'Match the pairs 1+1= ?', answerList: answerList },
-		id: '',
-		difficulty: '', //an integer from 1 to 10
-		nRepetition: '', //tested or not tested nRepetition > 0
-		nCorrect: '',
-		accuracyRate: '(nCorrect * 100) / nRepetition', //
-		reminderDate: '', //last time revised
-		skippable: true,
-		correct: true,
-		level: {
-			id: '',
-			title: '',
-			difficulty: '',
-			accuracyRate: '',
-			reminderDate: '',
-			order: '' //an infinite incremental integer, ascendant. marking how many levels
-		},
-		course: {
-			id: '',
-			title: '',
-			accuracyRate: '',
-			order: '' //an infinite incremental integer
-		}
-	}
-];
-
 export default function Quiz() {
-	// const handleShow = () => setShow(true);
+	let questionBankApi = [
+		{
+			details: {
+				id: '',
+				title: 'Match the pairs 1+1= ?',
+				difficulty: '', //an integer from 1 to 10
+				nRepetition: '', //tested or not tested nRepetition > 0
+				nCorrect: '',
+				accuracyRate: '(nCorrect * 100) / nRepetition', //
+				reminderDate: '', //last time revised
+				skippable: true,
+				correct: true
+			},
+			answerList: [
+				{
+					id: 0,
+					text: 'answer 1',
+					videoLink: 'https://www.youtube.com/embed/A9gw8fRr87o',
+					type: 'video',
+					question: ''
+				},
+				{
+					id: 1,
+					text: 'answer 2',
+					videoLink: 'https://www.youtube.com/embed/TVKfpKXS0Cg',
+					imageLink: 'badgedisabled',
+					type: 'video'
+				},
+				{
+					id: 2,
+					text: 'answer 3',
+					videoLink: '',
+					imageLink:
+						'https://www.elprocus.com/wp-content/uploads/2014/03/circuits.gif',
+					type: 'image'
+				},
+				{
+					id: 3,
+					text:
+						'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.',
+					videoLink: '',
+					imageLink: '',
+					type: ''
+				}
+			],
+			level: {
+				id: '',
+				title: '',
+				difficulty: '',
+				accuracyRate: '',
+				reminderDate: '',
+				order: '' //an infinite incremental integer, ascendant. marking how many levels
+			},
+			course: {
+				id: '',
+				title: '',
+				accuracyRate: '',
+				order: '' //an infinite incremental integer
+			}
+		},
+		{
+			details: {
+				id: '',
+				title: 'Match the pairs 2*2= ?',
+				difficulty: '', //an integer from 1 to 10
+				nRepetition: '', //tested or not tested nRepetition > 0
+				nCorrect: '',
+				accuracyRate: '(nCorrect * 100) / nRepetition', //
+				reminderDate: '', //last time revised
+				skippable: true,
+				correct: true
+			},
+			answerList: [
+				{
+					id: 0,
+					text: 'answer 1 - Q2',
+					videoLink: 'https://www.youtube.com/embed/A9gw8fRr87o',
+					type: 'video',
+					question: ''
+				},
+				{
+					id: 1,
+					text: 'answer 2 - Q2',
+					videoLink: 'https://www.youtube.com/embed/TVKfpKXS0Cg',
+					imageLink: 'badgedisabled',
+					type: 'video'
+				},
+				{
+					id: 2,
+					text: 'answer 3 - Q2',
+					videoLink: '',
+					imageLink:
+						'https://www.elprocus.com/wp-content/uploads/2014/03/circuits.gif',
+					type: 'image'
+				},
+				{
+					id: 3,
+					text:
+						' - Q2 Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.',
+					videoLink: '',
+					imageLink: '',
+					type: ''
+				}
+			],
+			level: {
+				id: '',
+				title: '',
+				difficulty: '',
+				accuracyRate: '',
+				reminderDate: '',
+				order: '' //an infinite incremental integer, ascendant. marking how many levels
+			},
+			course: {
+				id: '',
+				title: '',
+				accuracyRate: '',
+				order: '' //an infinite incremental integer
+			}
+		},
+		{
+			details: {
+				id: '',
+				title: 'Match the pairs 3/3= ?',
+				difficulty: '', //an integer from 1 to 10
+				nRepetition: '', //tested or not tested nRepetition > 0
+				nCorrect: '',
+				accuracyRate: '(nCorrect * 100) / nRepetition', //
+				reminderDate: '', //last time revised
+				skippable: true,
+				correct: true
+			},
+			answerList: [
+				{
+					id: 0,
+					text: 'answer 1 - Q3',
+					videoLink: 'https://www.youtube.com/embed/A9gw8fRr87o',
+					type: 'video',
+					question: ''
+				},
+				{
+					id: 1,
+					text: 'answer 2 - Q3',
+					videoLink: 'https://www.youtube.com/embed/TVKfpKXS0Cg',
+					imageLink: 'badgedisabled',
+					type: 'video'
+				},
+				{
+					id: 2,
+					text: 'answer 3 - Q3',
+					videoLink: '',
+					imageLink:
+						'https://www.elprocus.com/wp-content/uploads/2014/03/circuits.gif',
+					type: 'image'
+				},
+				{
+					id: 3,
+					text:
+						' - Q3 Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.',
+					videoLink: '',
+					imageLink: '',
+					type: ''
+				}
+			],
+			level: {
+				id: '',
+				title: '',
+				difficulty: '',
+				accuracyRate: '',
+				reminderDate: '',
+				order: '' //an infinite incremental integer, ascendant. marking how many levels
+			},
+			course: {
+				id: '',
+				title: '',
+				accuracyRate: '',
+				order: '' //an infinite incremental integer
+			}
+		}
+	];
+
+	const [currentQuestion, setCurrentQuestion] = useState(questionBankApi[0]);
+	const [number, setNumber] = useState(0);
+
+	useEffect(() => {}, []);
 	return (
 		<div>
 			<div style={styles.container}>
@@ -93,27 +209,47 @@ export default function Quiz() {
 				<Link to="/dashboard">
 					<IoMdClose style={styles.IoMdClose} />
 				</Link>
-				<h1 style={styles.question}>Match the pairs 1+1= ?</h1>
-				{answerList.map(answer => (
-					<Answer
-						answer={answer.text}
-						videoLink={answer.videoLink}
-						imageLink={answer.imageLink}
-						type={answer.type}
-						// checked={checked}
-					/>
-				))}
+				{/* {questionBankApi.map((currElement, index) => { */}
+				{/* // setCurrentQuestion(currElement); */}
+				{/* return ( */}
+				{/* <> */}
+				{questionBankApi.length > 0 && number <= questionBankApi.length && (
+					<>
+						<h1 style={styles.question}>{currentQuestion.details.title}</h1>
+						{currentQuestion.answerList.map(answer => (
+							<Answer
+								answer={answer.text}
+								videoLink={answer.videoLink}
+								imageLink={answer.imageLink}
+								type={answer.type}
+							/>
+						))}
+					</>
+				)}
+				{/* </> */}
+				{/* ); */}
+				{/* })} */}
+				{/* {questionBank.map(currentQuestion => (
+					// <>
+					// 	{setQuestion(currentQuestion)}
+					// 	{/* {console.log(Question)} */}
+				{/* <h1 style={styles.question}>{Quetion.question.title}</h1> */}
+				{/* )) } */}
+				{/* {questionBank.map(currentQuestion => console.log('Q ', Q))} */}
 				<div style={styles.hl} />
-				<Check />
-			</div>
-		</div>
-	);
-}
 
-function Check(props) {
-	return (
-		<div style={styles.check}>
-			<p style={styles.checkText}>Check</p>
+				<button
+					style={styles.check}
+					onClick={() => {
+						if (number + 2 <= questionBankApi.length) {
+							setCurrentQuestion(questionBankApi[number + 1]);
+							setNumber(number + 1);
+						}
+					}}
+				>
+					<p style={styles.checkText}>Check</p>
+				</button>
+			</div>
 		</div>
 	);
 }
@@ -133,7 +269,7 @@ function Answer(props) {
 				style={checked ? styles.answerChecked : styles.answer}
 				onClick={handleShow}
 			>
-				<p style={styles.answerText}>First answer</p>
+				<p style={styles.answerText}>{props.answer}</p>
 			</button>
 			<Modal show={show} onHide={handleClose}>
 				<Modal.Header closeButton></Modal.Header>
@@ -149,9 +285,9 @@ function Answer(props) {
 							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 							allowfullscreen
 							frameborder="0"
-							allowFullScreen="true"
-							webkitallowfullscreen="true"
-							mozallowfullscreen="true"
+							allowFullScreen={true}
+							webkitallowfullscreen={true}
+							mozallowfullscreen={true}
 						></iframe>
 					)}
 					{props.type === 'image' && (
@@ -205,8 +341,8 @@ const styles = {
 		fontFamily: 'din-round, sans-serif',
 		fontWeight: '700',
 		color: 'rgb(87, 86, 92)',
-		fontSize: '1.5rem',
-		marginBottom: '4rem'
+		fontSize: '2rem',
+		marginTop: '4rem'
 	},
 	lessonElement: {
 		height: '15vmin'
@@ -221,33 +357,36 @@ const styles = {
 	},
 	answer: {
 		height: '100%',
+		width: '15rem',
 		display: 'flex',
 		flexDirection: 'row',
 		justifyContent: 'center',
 		background: 'white',
-		padding: '10px',
+		padding: '1rem',
+		paddingVertical: '2rem',
 		margin: '1rem',
-		// border: '2px solid #d9e0e6',
 		borderTopWidth: '2px',
 		borderRightWidth: '2px',
 		borderLeftWidth: '2px',
-		borderBottomWidth: '6px',
+		borderBottomWidth: '10px',
 		borderStyle: 'solid',
 		borderColor: '#d9e0e6',
 		borderRadius: '16px'
 	},
 	answerChecked: {
 		height: '100%',
+		width: '15rem',
 		display: 'flex',
 		flexDirection: 'row',
 		justifyContent: 'center',
 		background: '#ddf4ff',
-		padding: '10px',
+		padding: '1rem',
+		paddingVertical: '2rem',
 		margin: '1rem',
 		borderTopWidth: '2px',
 		borderRightWidth: '2px',
 		borderLeftWidth: '2px',
-		borderBottomWidth: '6px',
+		borderBottomWidth: '10px',
 		borderStyle: 'solid',
 		borderColor: '#1cb0f6',
 		borderRadius: '16px'
@@ -256,7 +395,7 @@ const styles = {
 		color: 'rgb(87, 86, 92)',
 		fontFamily: 'din-round, sans-serif',
 		margin: '0',
-		fontSize: '0.85rem'
+		fontSize: '1rem'
 	},
 	check: {
 		display: 'flex',
@@ -268,7 +407,7 @@ const styles = {
 		borderRight: '4px solid rgb(237, 186, 67)',
 		borderBottom: '4px solid rgb(237, 186, 67)',
 		borderRadius: '5%',
-		position: 'absolute',
+		position: 'relative',
 		bottom: '0',
 		right: '0',
 		height: 'fit-content',
