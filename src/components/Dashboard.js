@@ -140,7 +140,6 @@ const styles = {
 	vl: {
 		borderLeft: '3px solid rgb(87, 86, 92)',
 		margin: '10px'
-		// height: 500px;
 	},
 	level: {
 		height: '100%',
