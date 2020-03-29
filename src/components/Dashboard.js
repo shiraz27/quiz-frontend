@@ -2,15 +2,6 @@ import React, { useState } from 'react';
 
 //packages
 import { Link } from 'react-router-dom';
-import { bounce } from 'react-animations';
-import Radium, { StyleRoot } from 'radium';
-
-const styles = {
-	bounce: {
-		animation: 'x 1s',
-		animationName: Radium.keyframes(bounce, 'bounce')
-	}
-};
 
 //components
 import NavbarTop from './NavbarTop';
@@ -59,10 +50,7 @@ export default function Dashboard() {
 				<div style={styles.container}>
 					<Level />
 					{lessoList.map(lesson => (
-						<Link
-							to="/quiz/maths/1/1"
-							style={{ color: 'transparent !important' }}
-						>
+						<Link to="/quiz/maths/1/1">
 							{/* we'll be able to retrieve this data and fetch the adequate
 							resources */}
 							<LessonElement

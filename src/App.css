@@ -21,7 +21,3 @@
 .modal-header {
 	border-bottom: 1px solid transparent !important;
 }
-a:hover {
-	/* color: transparent !important; */
-	text-decoration: underline;
-}
