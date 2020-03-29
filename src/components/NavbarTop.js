@@ -42,7 +42,19 @@ function NavbarTop() {
 
 				<img src={lesson} style={styles.navElement} />
 				<img src={level} style={styles.navElement} />
-				<img src={profile} style={styles.navElement} />
+				<Dropdown>
+					<Dropdown.Toggle
+						id="dropdown-basic"
+						variant="link"
+						style={{ color: '#d9e0e6', fontSize: '2rem' }}
+					>
+						<img src={profile} style={styles.navElement} />
+					</Dropdown.Toggle>
+					<Dropdown.Menu>
+						<Dropdown.Item href="#/action-1">My profile</Dropdown.Item>
+						<Dropdown.Item href="#/action-3">Settings</Dropdown.Item>
+					</Dropdown.Menu>
+				</Dropdown>
 			</Navbar.Collapse>
 		</Navbar>
 	);

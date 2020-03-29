@@ -174,7 +174,7 @@ const styles = {
 	},
 	badge: { height: '5vmin' },
 	lessonTitle: {
-		fontWeight: '700',
+		fontWeight: '500',
 		color: 'rgb(87, 86, 92)',
 		fontFamily: 'din-round, sans-serif',
 		margin: '0'

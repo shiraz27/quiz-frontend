@@ -9,6 +9,7 @@ import {
 import '../App.css';
 import { Modal, Button } from 'react-bootstrap/';
 import { Line } from 'rc-progress';
+import flag from '../img/flag.svg';
 
 export default function Quiz() {
 	let questionBankApi = [
@@ -208,7 +209,6 @@ export default function Quiz() {
 
 	const [progress, setProgress] = useState(0);
 
-	console.log('progress', progress);
 	return (
 		<div>
 			<div style={styles.container}>
@@ -311,22 +311,33 @@ function Answer(props) {
 				<p style={styles.answerText}>{props.sub}</p>
 			</button>
 			<Modal show={show} onHide={handleClose}>
-				<Modal.Header closeButton></Modal.Header>
+				<Modal.Header style={{ padding: '0px !important' }}>
+					{props.type === 'image' || props.type === 'video' ? (
+						<>
+							<img src={flag} style={styles.navElement} />
+							<p style={styles.answerTextdeco}>{props.answer}</p>
+						</>
+					) : (
+						<img src={flag} style={styles.navElement} />
+					)}
+				</Modal.Header>
 				<Modal.Body>
-					<p>{props.answer}</p>
-
+					{props.type !== 'image' && props.type !== 'video' && (
+						<p style={styles.answerText}>{props.answer}</p>
+					)}
 					{props.type === 'video' && (
 						<iframe
 							width="100%"
-							height="100%"
+							height="50%"
 							src={props.videoLink}
-							frameborder="0"
+							// frameborder="0"
 							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 							allowfullscreen
 							frameborder="0"
 							allowFullScreen={true}
 							webkitallowfullscreen={true}
 							mozallowfullscreen={true}
+							// style={{ position: 'absolute', right: '0', left: '0' }}
 						></iframe>
 					)}
 					{props.type === 'image' && (
@@ -378,7 +389,7 @@ function Answer(props) {
 const styles = {
 	question: {
 		fontFamily: 'din-round, sans-serif',
-		fontWeight: '700',
+		fontWeight: '500',
 		color: 'rgb(87, 86, 92)',
 		fontSize: '2rem',
 		marginTop: '4rem'
@@ -436,7 +447,19 @@ const styles = {
 		color: 'rgb(87, 86, 92)',
 		fontFamily: 'din-round, sans-serif',
 		margin: '0',
-		fontSize: '1rem'
+		fontSize: '1.5rem',
+		textAlign: 'center'
+	},
+	answerTextdeco: {
+		color: 'rgb(87, 86, 92)',
+		fontFamily: 'din-round, sans-serif',
+		margin: '0',
+		fontSize: '1.5rem',
+		textAlign: 'center'
+		// position: 'absolute',
+		// right: 0,
+		// left: 0
+		// borderBottom: '10px solid #8766fa'
 	},
 	check: {
 		display: 'flex',
@@ -447,7 +470,6 @@ const styles = {
 		padding: '5px',
 		margin: '1rem',
 		borderRadius: '5%',
-		position: 'absolute',
 		bottom: '0',
 		height: 'fit-content',
 		width: 'fit-content',
@@ -468,7 +490,6 @@ const styles = {
 		padding: '5px',
 		margin: '1rem',
 		borderRadius: '5%',
-		position: 'absolute',
 		bottom: '0',
 		height: 'fit-content',
 		width: 'fit-content',
@@ -515,5 +536,9 @@ const styles = {
 	incorrect: {
 		color: 'red',
 		fontSize: '30px'
+	},
+	navElement: {
+		height: '4rem',
+		margin: '5px'
 	}
 };
