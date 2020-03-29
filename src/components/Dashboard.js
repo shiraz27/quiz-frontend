@@ -1,5 +1,17 @@
 import React, { useState } from 'react';
 
+//packages
+import { Link } from 'react-router-dom';
+import { bounce } from 'react-animations';
+import Radium, { StyleRoot } from 'radium';
+
+const styles = {
+	bounce: {
+		animation: 'x 1s',
+		animationName: Radium.keyframes(bounce, 'bounce')
+	}
+};
+
 //components
 import NavbarTop from './NavbarTop';
 
@@ -47,22 +59,32 @@ export default function Dashboard() {
 				<div style={styles.container}>
 					<Level />
 					{lessoList.map(lesson => (
-						<LessonElement
-							lessonImg={lesson.lessonImg}
-							badge={lesson.badgeImg}
-							title={lesson.title}
-						/>
+						<Link
+							to="/quiz/maths/1/1"
+							style={{ color: 'transparent !important' }}
+						>
+							{/* we'll be able to retrieve this data and fetch the adequate
+							resources */}
+							<LessonElement
+								className="BouncyDiv"
+								lessonImg={lesson.lessonImg}
+								badge={lesson.badgeImg}
+								title={lesson.title}
+							/>
+						</Link>
 					))}
 				</div>
 				<Trophy won={true} />
 				<div style={styles.container}>
 					<Level />
 					{lessoList.map(lesson => (
-						<LessonElement
-							lessonImg={lesson.lessonImg}
-							badge={lesson.badgeImg}
-							title={lesson.title}
-						/>
+						<Link to="/quiz">
+							<LessonElement
+								lessonImg={lesson.lessonImg}
+								badge={lesson.badgeImg}
+								title={lesson.title}
+							/>
+						</Link>
 					))}
 				</div>
 				<Trophy won={false} />

@@ -15,3 +15,13 @@
 	background-color: white !important;
 	color: rgb(87, 86, 92) !important;
 }
+.modal-footer {
+	border-top: 1px solid transparent !important;
+}
+.modal-header {
+	border-bottom: 1px solid transparent !important;
+}
+a:hover {
+	/* color: transparent !important; */
+	text-decoration: underline;
+}

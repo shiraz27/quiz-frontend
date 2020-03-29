@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import ProgressBar from 'react-animated-progress-bar';
-import { IoMdClose, IoIosCheckmark, IoIosClose } from 'react-icons/io';
+import {
+	IoMdClose,
+	IoIosCheckmark,
+	IoIosClose,
+	IoIosArrowForward
+} from 'react-icons/io';
 import '../App.css';
 import { Modal, Button } from 'react-bootstrap/';
+import { Line } from 'rc-progress';
 
 export default function Quiz() {
 	let questionBankApi = [
@@ -201,25 +206,25 @@ export default function Quiz() {
 
 	const [next, setNext] = useState(false);
 
-	const [clear, setClear] = useState(!next);
+	const [progress, setProgress] = useState(0);
 
-	useEffect(() => {}, []);
+	console.log('progress', progress);
 	return (
 		<div>
 			<div style={styles.container}>
-				<ProgressBar
-					width="50vw"
-					height="1.2rem"
-					rect
-					fontColor="#d9e0e6"
-					percentage="90"
-					rectPadding="1px"
-					rectBorderRadius="20px"
-					trackPathColor="transparent"
-					bgColor="#333333"
-					trackBorderColor="#d9e0e6"
-					fontSize="1rem"
-				/>
+				<div style={{ width: '250px' }}>
+					<Line
+						percent={progress}
+						strokeWidth="4"
+						strokeColor={
+							progress <= 34
+								? '#e36464ff'
+								: progress <= 67
+								? '#f5dc48'
+								: '#6ed6d2ff'
+						}
+					/>
+				</div>
 				<Link to="/dashboard">
 					<IoMdClose style={styles.IoMdClose} />
 				</Link>
@@ -241,37 +246,44 @@ export default function Quiz() {
 										type={answer.type}
 										showCorrect={correctMe}
 										correct={answer.correct}
-										showNext={clear}
 									/>
 								</>
 							);
 						})}
 					</>
 				)}
-				<button
-					style={styles.check}
-					onClick={() => {
-						if (number + 2 <= questionBankApi.length) {
-							handleCorrectMe();
-							setNext(true);
-						}
-					}}
-				>
-					<p style={styles.checkText}>Check</p>
-				</button>
-				{correctMe && (
+				{next !== true && (
 					<button
-						variant="success"
-						// style={styles.check}
+						style={styles.check}
 						onClick={() => {
-							if (number + 2 <= questionBankApi.length) {
-								setCorrectMe(false);
-								setCurrentQuestion(questionBankApi[number + 1]);
-								setNumber(number + 1);
+							if (number + 1 <= questionBankApi.length) {
+								handleCorrectMe();
+								setNext(true);
+								setProgress(((number + 1) * 100) / questionBankApi.length);
 							}
 						}}
 					>
-						<p style={styles.checkText}>Next</p>
+						<p style={styles.checkText}>Check</p>
+					</button>
+				)}
+				{correctMe && number + 1 !== questionBankApi.length && (
+					<button
+						style={styles.next}
+						onClick={() => {
+							if (number + 1 <= questionBankApi.length) {
+								setCorrectMe(false);
+								setCurrentQuestion(questionBankApi[number + 1]);
+								setNumber(number + 1);
+								setNext(false);
+							}
+						}}
+					>
+						<p style={styles.checkText}>
+							Next
+							<span>
+								<IoIosArrowForward />
+							</span>
+						</p>
 					</button>
 				)}
 			</div>
@@ -287,17 +299,9 @@ function Answer(props) {
 	const [show, setShow] = useState(false);
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
-	// if (props.showNext) setChecked(false);
 	return (
 		<>
-			<button
-				style={
-					checked || (props.showCorrect && props.next)
-						? styles.answerChecked
-						: styles.answer
-				}
-				onClick={handleShow}
-			>
+			<button style={styles.answer} onClick={handleShow}>
 				{props.showCorrect &&
 					(checked === props.correct ? (
 						<IoIosCheckmark style={styles.correct} />
@@ -338,10 +342,10 @@ function Answer(props) {
 						}}
 						style={{
 							color: '#fff',
-							backgroundColor: '#28a745',
+							backgroundColor: '#6ed6d2ff',
 							borderWidth: '2px 2px 6px',
 							borderStyle: 'solid',
-							borderColor: '#24913d',
+							borderColor: '#3caea3',
 							borderRadius: '16px'
 						}}
 					>
@@ -355,10 +359,10 @@ function Answer(props) {
 						}}
 						style={{
 							color: '#fff',
-							backgroundColor: '#dc3545',
+							backgroundColor: '#e36464ff',
 							borderWidth: '2px 2px 6px',
 							borderStyle: 'solid',
-							borderColor: '#b1313d',
+							borderColor: '#dc3030',
 							borderRadius: '16px'
 						}}
 					>
@@ -439,18 +443,44 @@ const styles = {
 		flexDirection: 'row',
 		justifyContent: 'center',
 		alignItems: 'center',
-		background: 'rgb(245, 220, 72)',
+		background: 'rgb(222, 214, 252)',
 		padding: '5px',
 		margin: '1rem',
-		borderRight: '4px solid rgb(237, 186, 67)',
-		borderBottom: '4px solid rgb(237, 186, 67)',
 		borderRadius: '5%',
 		position: 'absolute',
 		bottom: '0',
 		height: 'fit-content',
 		width: 'fit-content',
-		marginBottom: '2rem'
+		marginBottom: '2rem',
+		borderTopWidth: '2px',
+		borderRightWidth: '2px',
+		borderLeftWidth: '2px',
+		borderBottomWidth: '10px',
+		borderStyle: 'solid',
+		borderColor: 'rgb(155, 127, 250)'
 	},
+	next: {
+		display: 'flex',
+		flexDirection: 'row',
+		justifyContent: 'center',
+		alignItems: 'center',
+		background: 'rgb(245, 220, 72)',
+		padding: '5px',
+		margin: '1rem',
+		borderRadius: '5%',
+		position: 'absolute',
+		bottom: '0',
+		height: 'fit-content',
+		width: 'fit-content',
+		marginBottom: '2rem',
+		borderTopWidth: '2px',
+		borderRightWidth: '2px',
+		borderLeftWidth: '2px',
+		borderBottomWidth: '10px',
+		borderStyle: 'solid',
+		borderColor: 'rgb(237, 186, 67)'
+	},
+
 	checkText: {
 		fontWeight: '700',
 		color: 'white',
