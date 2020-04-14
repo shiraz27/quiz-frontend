@@ -13,12 +13,12 @@ function NavbarTop() {
 		<Navbar style={styles.navBox}>
 			<Navbar.Brand>
 				<Link to="/dashboard">
-					<img
+					{/* <img
 						src={logo}
 						className="App-logo"
 						alt="logo"
 						style={styles.navElement}
-					/>
+					/> */}
 				</Link>
 			</Navbar.Brand>
 			<Navbar.Toggle />
@@ -62,7 +62,7 @@ function NavbarTop() {
 
 const styles = {
 	defaultFontFamily: {
-		fontFamily: 'din-round, sans-serif'
+		fontFamily: 'din-round, sans-serif',
 	},
 	logoText: {
 		fontWeight: '700',
@@ -72,21 +72,24 @@ const styles = {
 		background: 'rgb(194, 176, 255)',
 		padding: '5px',
 		borderBottom: '#8766fa 5px solid',
-		fontSize: '0.75em'
+		fontSize: '0.75em',
 	},
 	navBox: {
-		borderBottom: '2px solid #d9e0e6ff'
+		borderBottom: '2px solid gray',
+		background: 'aliceblue',
+
+		// boxShadow: '0 2px 4px 0 rgba(0,0,0,.05)',
 	},
 	navElement: {
 		height: '9vmin',
-		margin: '5px'
+		margin: '5px',
 	},
 	vl: {
 		margin: '10px',
-		width: '0.1rem',
+		width: '2px',
 		height: '4rem',
-		background: '#d9e0e6'
-	}
+		background: 'gray',
+	},
 };
 
 export default NavbarTop;

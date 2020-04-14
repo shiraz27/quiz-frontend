@@ -4,12 +4,13 @@ import {
 	IoMdClose,
 	IoIosCheckmark,
 	IoIosClose,
-	IoIosArrowForward
+	IoIosArrowForward,
 } from 'react-icons/io';
 import '../App.css';
 import { Modal, Button } from 'react-bootstrap/';
 import { Line } from 'rc-progress';
 import flag from '../img/flag.svg';
+import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 
 export default function Quiz() {
 	let questionBankApi = [
@@ -22,7 +23,7 @@ export default function Quiz() {
 				nCorrect: '',
 				accuracyRate: '(nCorrect * 100) / nRepetition', //
 				reminderDate: '', //last time revised
-				skippable: true
+				skippable: true,
 			},
 			answerList: [
 				{
@@ -30,7 +31,7 @@ export default function Quiz() {
 					text: 'answer 1',
 					videoLink: 'https://www.youtube.com/embed/A9gw8fRr87o',
 					type: 'video',
-					correct: true
+					correct: true,
 				},
 				{
 					id: 1,
@@ -38,7 +39,7 @@ export default function Quiz() {
 					videoLink: 'https://www.youtube.com/embed/TVKfpKXS0Cg',
 					imageLink: 'badgedisabled',
 					type: 'video',
-					correct: true
+					correct: true,
 				},
 				{
 					id: 2,
@@ -47,7 +48,7 @@ export default function Quiz() {
 					imageLink:
 						'https://www.elprocus.com/wp-content/uploads/2014/03/circuits.gif',
 					type: 'image',
-					correct: false
+					correct: false,
 				},
 				{
 					id: 3,
@@ -56,8 +57,8 @@ export default function Quiz() {
 					videoLink: '',
 					imageLink: '',
 					type: '',
-					correct: true
-				}
+					correct: true,
+				},
 			],
 			level: {
 				id: '',
@@ -65,14 +66,14 @@ export default function Quiz() {
 				difficulty: '',
 				accuracyRate: '',
 				reminderDate: '',
-				order: '' //an infinite incremental integer, ascendant. marking how many levels
+				order: '', //an infinite incremental integer, ascendant. marking how many levels
 			},
 			course: {
 				id: '',
 				title: '',
 				accuracyRate: '',
-				order: '' //an infinite incremental integer
-			}
+				order: '', //an infinite incremental integer
+			},
 		},
 		{
 			details: {
@@ -83,7 +84,7 @@ export default function Quiz() {
 				nCorrect: '',
 				accuracyRate: '(nCorrect * 100) / nRepetition', //
 				reminderDate: '', //last time revised
-				skippable: true
+				skippable: true,
 			},
 			answerList: [
 				{
@@ -91,7 +92,7 @@ export default function Quiz() {
 					text: 'answer 1 - Q2',
 					videoLink: 'https://www.youtube.com/embed/A9gw8fRr87o',
 					type: 'video',
-					correct: true
+					correct: true,
 				},
 				{
 					id: 1,
@@ -99,7 +100,7 @@ export default function Quiz() {
 					videoLink: 'https://www.youtube.com/embed/TVKfpKXS0Cg',
 					imageLink: 'badgedisabled',
 					type: 'video',
-					correct: false
+					correct: false,
 				},
 				{
 					id: 2,
@@ -108,7 +109,7 @@ export default function Quiz() {
 					imageLink:
 						'https://www.elprocus.com/wp-content/uploads/2014/03/circuits.gif',
 					type: 'image',
-					correct: true
+					correct: true,
 				},
 				{
 					id: 3,
@@ -117,8 +118,8 @@ export default function Quiz() {
 					videoLink: '',
 					imageLink: '',
 					type: '',
-					correct: true
-				}
+					correct: true,
+				},
 			],
 			level: {
 				id: '',
@@ -126,14 +127,14 @@ export default function Quiz() {
 				difficulty: '',
 				accuracyRate: '',
 				reminderDate: '',
-				order: '' //an infinite incremental integer, ascendant. marking how many levels
+				order: '', //an infinite incremental integer, ascendant. marking how many levels
 			},
 			course: {
 				id: '',
 				title: '',
 				accuracyRate: '',
-				order: '' //an infinite incremental integer
-			}
+				order: '', //an infinite incremental integer
+			},
 		},
 		{
 			details: {
@@ -144,7 +145,7 @@ export default function Quiz() {
 				nCorrect: '',
 				accuracyRate: '(nCorrect * 100) / nRepetition', //
 				reminderDate: '', //last time revised
-				skippable: true
+				skippable: true,
 			},
 			answerList: [
 				{
@@ -152,7 +153,7 @@ export default function Quiz() {
 					text: 'answer 1 - Q3',
 					videoLink: 'https://www.youtube.com/embed/A9gw8fRr87o',
 					type: 'video',
-					correct: true
+					correct: true,
 				},
 				{
 					id: 1,
@@ -160,7 +161,7 @@ export default function Quiz() {
 					videoLink: 'https://www.youtube.com/embed/TVKfpKXS0Cg',
 					imageLink: 'badgedisabled',
 					type: 'video',
-					correct: true
+					correct: true,
 				},
 				{
 					id: 2,
@@ -169,7 +170,7 @@ export default function Quiz() {
 					imageLink:
 						'https://www.elprocus.com/wp-content/uploads/2014/03/circuits.gif',
 					type: 'image',
-					correct: false
+					correct: false,
 				},
 				{
 					id: 3,
@@ -178,8 +179,8 @@ export default function Quiz() {
 					videoLink: '',
 					imageLink: '',
 					type: '',
-					correct: false
-				}
+					correct: false,
+				},
 			],
 			level: {
 				id: '',
@@ -187,15 +188,15 @@ export default function Quiz() {
 				difficulty: '',
 				accuracyRate: '',
 				reminderDate: '',
-				order: '' //an infinite incremental integer, ascendant. marking how many levels
+				order: '', //an infinite incremental integer, ascendant. marking how many levels
 			},
 			course: {
 				id: '',
 				title: '',
 				accuracyRate: '',
-				order: '' //an infinite incremental integer
-			}
-		}
+				order: '', //an infinite incremental integer
+			},
+		},
 	];
 
 	const [currentQuestion, setCurrentQuestion] = useState(questionBankApi[0]);
@@ -228,10 +229,17 @@ export default function Quiz() {
 				<Link to="/dashboard">
 					<IoMdClose style={styles.IoMdClose} />
 				</Link>
+				{/* <CountdownCircleTimer
+					isPlaying
+					durationSeconds={180}
+					colors={[['#f5dc48']]}
+					width="50%"
+					height="50%"
+				/> */}
 				{questionBankApi.length > 0 && number <= questionBankApi.length && (
 					<>
 						<h1 style={styles.question}>{currentQuestion.details.title}</h1>
-						{currentQuestion.answerList.map(answer => {
+						{currentQuestion.answerList.map((answer) => {
 							return (
 								<>
 									<Answer
@@ -357,7 +365,7 @@ function Answer(props) {
 							borderWidth: '2px 2px 6px',
 							borderStyle: 'solid',
 							borderColor: '#3caea3',
-							borderRadius: '16px'
+							borderRadius: '16px',
 						}}
 					>
 						True
@@ -374,7 +382,7 @@ function Answer(props) {
 							borderWidth: '2px 2px 6px',
 							borderStyle: 'solid',
 							borderColor: '#dc3030',
-							borderRadius: '16px'
+							borderRadius: '16px',
 						}}
 					>
 						False
@@ -392,10 +400,10 @@ const styles = {
 		fontWeight: '500',
 		color: 'rgb(87, 86, 92)',
 		fontSize: '2rem',
-		marginTop: '4rem'
+		marginTop: '4rem',
 	},
 	lessonElement: {
-		height: '15vmin'
+		height: '15vmin',
 	},
 	container: {
 		display: 'flex',
@@ -403,7 +411,7 @@ const styles = {
 		alignItems: 'center',
 		justifyContent: 'center',
 		fontSize: 'calc(10px + 2vmin)',
-		margin: '15px'
+		margin: '15px',
 	},
 	answer: {
 		height: '100%',
@@ -422,7 +430,7 @@ const styles = {
 		borderBottomWidth: '10px',
 		borderStyle: 'solid',
 		borderColor: '#d9e0e6',
-		borderRadius: '16px'
+		borderRadius: '16px',
 	},
 	answerChecked: {
 		height: '100%',
@@ -441,21 +449,21 @@ const styles = {
 		borderBottomWidth: '10px',
 		borderStyle: 'solid',
 		borderColor: '#1cb0f6',
-		borderRadius: '16px'
+		borderRadius: '16px',
 	},
 	answerText: {
 		color: 'rgb(87, 86, 92)',
 		fontFamily: 'din-round, sans-serif',
 		margin: '0',
 		fontSize: '1.5rem',
-		textAlign: 'center'
+		textAlign: 'center',
 	},
 	answerTextdeco: {
 		color: 'rgb(87, 86, 92)',
 		fontFamily: 'din-round, sans-serif',
 		margin: '0',
 		fontSize: '1.5rem',
-		textAlign: 'center'
+		textAlign: 'center',
 		// position: 'absolute',
 		// right: 0,
 		// left: 0
@@ -466,20 +474,19 @@ const styles = {
 		flexDirection: 'row',
 		justifyContent: 'center',
 		alignItems: 'center',
-		background: 'rgb(222, 214, 252)',
+		background: 'rgb(175, 153, 251)',
 		padding: '5px',
 		margin: '1rem',
-		borderRadius: '5%',
 		bottom: '0',
 		height: 'fit-content',
 		width: 'fit-content',
-		marginBottom: '2rem',
 		borderTopWidth: '2px',
 		borderRightWidth: '2px',
 		borderLeftWidth: '2px',
 		borderBottomWidth: '10px',
+		borderRadius: '16px',
 		borderStyle: 'solid',
-		borderColor: 'rgb(155, 127, 250)'
+		borderColor: 'rgb(155, 127, 250)',
 	},
 	next: {
 		display: 'flex',
@@ -498,8 +505,9 @@ const styles = {
 		borderRightWidth: '2px',
 		borderLeftWidth: '2px',
 		borderBottomWidth: '10px',
+		borderRadius: '16px',
 		borderStyle: 'solid',
-		borderColor: 'rgb(237, 186, 67)'
+		borderColor: '#e8d040',
 	},
 
 	checkText: {
@@ -510,12 +518,12 @@ const styles = {
 		paddingTop: '0.25rem',
 		paddingBottom: '0.25rem',
 		paddingLeft: '2rem',
-		paddingRight: '2rem'
+		paddingRight: '2rem',
 	},
 	hl: {
 		border: '1px solid #d9e0e6ff',
 		width: '100%',
-		marginTop: '4rem'
+		marginTop: '4rem',
 	},
 	IoMdClose: {
 		position: 'absolute',
@@ -523,22 +531,22 @@ const styles = {
 		top: 0,
 		color: '#d9e0e6',
 		fontSize: '3rem',
-		margin: '1rem'
+		margin: '1rem',
 	},
 	imageLink: {
 		width: '100%',
-		height: '100%'
+		height: '100%',
 	},
 	correct: {
 		color: 'green',
-		fontSize: '30px'
+		fontSize: '30px',
 	},
 	incorrect: {
 		color: 'red',
-		fontSize: '30px'
+		fontSize: '30px',
 	},
 	navElement: {
 		height: '4rem',
-		margin: '5px'
-	}
+		margin: '5px',
+	},
 };
