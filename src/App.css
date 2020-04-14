@@ -11,7 +11,7 @@
   background-color: transparent !important;
 }
 .dropdown-toggle::after {
-  color: 'gray';
+  color: gray !important;
 }
 .dropdown-item {
   /* background-color: #ded6fc !important; */
