@@ -13,6 +13,8 @@ import lessonicon from '../img/lessonicon.svg';
 import lessonicon2 from '../img/lessonicon2.svg';
 import trophyenabled from '../img/trophy.svg';
 import trophydisabled from '../img/trophydisabled.svg';
+import level from '../img/level.svg';
+import blank from '../img/blank.svg';
 
 //data
 let lessoList = [
@@ -48,14 +50,30 @@ export default function Dashboard() {
 			<NavbarTop />
 			<body style={{ background: 'white' }}>
 				<br />
+				<div style={{ position: 'absolute', right: 0 }}>
+					<LevelElement
+						// lessonImg={lesson.lessonImg}
+						badge={level}
+						title="Test Level"
+						number="1"
+					/>
+				</div>
+				<div style={{ position: 'absolute', left: 0 }}>
+					<LevelElement
+						// lessonImg={lesson.lessonImg}
+						badge={level}
+						title="Test all levels"
+						number="9"
+						type="all"
+					/>
+				</div>
 				<div style={styles.container}>
-					<Level />
+					<Level level="Level 1" />
 					{lessoList.map((lesson) => (
 						<Link to="/quiz/maths/1/1">
 							{/* we'll be able to retrieve this data and fetch the adequate
 							resources */}
 							<LessonElement
-								className="BouncyDiv"
 								lessonImg={lesson.lessonImg}
 								badge={lesson.badgeImg}
 								title={lesson.title}
@@ -64,8 +82,16 @@ export default function Dashboard() {
 					))}
 				</div>
 				<Trophy won={true} />
+				<div style={{ position: 'absolute', right: 0 }}>
+					<LevelElement
+						// lessonImg={lesson.lessonImg}
+						badge={level}
+						title="Test Level"
+						number="2"
+					/>
+				</div>
 				<div style={styles.container}>
-					<Level />
+					<Level level="Level 2" />
 					{lessoList.map((lesson) => (
 						<Link to="/quiz">
 							<LessonElement
@@ -93,6 +119,29 @@ function LessonElement(props) {
 	);
 }
 
+function LevelElement(props) {
+	const color = props.type === 'all' ? '#f5dc48' : '#8766fa';
+
+	return (
+		<div style={styles.levelDiv}>
+			<p style={styles.lessonTitle}>
+				<span
+					// src={blank}
+					style={{
+						height: '5vmin',
+						borderRadius: '50%',
+						background: color,
+						height: '5vh',
+						width: '5vh',
+					}}
+				>
+					<span style={{ color: 'white', margin: '10px' }}>{props.number}</span>
+				</span>{' '}
+				{props.title}
+			</p>
+		</div>
+	);
+}
 function LessonTitle(props) {
 	return (
 		<div style={styles.rowContainer}>
@@ -106,7 +155,7 @@ function LessonTitle(props) {
 function Level(props) {
 	return (
 		<div style={styles.level}>
-			<p style={styles.levelText}>Level 1</p>
+			<p style={styles.levelText}>{props.level}</p>
 		</div>
 	);
 }
@@ -152,6 +201,32 @@ const styles = {
 		boxShadow: '0 4px 6px 2px rgba(2, 30, 47, 0.03)',
 		borderRadius: '4px',
 		border: '2px solid gray',
+	},
+	levelDiv: {
+		display: 'flex',
+		flexDirection: 'column',
+		alignItems: 'center',
+		justifyContent: 'center',
+		fontSize: 'calc(10px + 2vmin)',
+		background: 'aliceblue',
+		maxWidth: '370px',
+		// width: 'fit-content',
+		margin: '15px',
+		boxShadow: '0 4px 6px 2px rgba(2, 30, 47, 0.03)',
+		borderRadius: '4px',
+		border: '2px solid gray',
+		// overflow: 'scroll',
+		// maxHeight: '122px',
+		maxWidth: '370px',
+		width: '15vw',
+		height: 'fit-content',
+		maxHeight: '150px',
+		textAlign: 'center',
+		padding: '10px',
+	},
+	levelScroll: {
+		overflow: 'scroll',
+		height: '100%',
 	},
 	roundContainer: {
 		height: 'fit-content',
@@ -201,12 +276,22 @@ const styles = {
 		// background: '#e0f1ff',
 		// padding: '20px',
 	},
+	levelImg: {
+		height: '10vmin',
+		// margin: '5px',
+		// background: 'aliceblue',
+		// borderRadius: '50%',
+		// border: '10px solid aliceblue',
+		// background: '#e0f1ff',
+		// padding: '20px',
+	},
 	badge: { height: '5vmin' },
 	lessonTitle: {
 		fontWeight: '500',
 		color: 'black',
 		fontFamily: 'din-round, sans-serif',
 		margin: '0',
+		textAlign: 'center',
 	},
 	trophy: {
 		height: '20vmin',
@@ -216,5 +301,6 @@ const styles = {
 		color: 'white',
 		fontFamily: 'din-round, sans-serif',
 		margin: '0',
+		textAlign: 'center',
 	},
 };

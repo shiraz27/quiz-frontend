@@ -19,11 +19,26 @@ function NavbarTop() {
 						alt="logo"
 						style={styles.navElement}
 					/> */}
+					<Dropdown>
+						<Dropdown.Toggle
+							id="dropdown-basic"
+							variant="link"
+							style={{ color: '#d9e0e6', fontSize: '2rem' }}
+						>
+							<img src={course} style={styles.navElement} />
+						</Dropdown.Toggle>
+						<Dropdown.Menu>
+							<Dropdown.Item href="#/action-1">Arabic</Dropdown.Item>
+							<Dropdown.Item href="#/action-3">Programming</Dropdown.Item>
+							<Dropdown.Item href="#/action-1">Jurisprudence</Dropdown.Item>
+							<Dropdown.Item href="#/action-2">Linear Algebra</Dropdown.Item>
+						</Dropdown.Menu>
+					</Dropdown>
 				</Link>
 			</Navbar.Brand>
 			<Navbar.Toggle />
 			<Navbar.Collapse className="justify-content-end">
-				<Dropdown>
+				{/* <Dropdown>
 					<Dropdown.Toggle
 						id="dropdown-basic"
 						variant="link"
@@ -37,8 +52,8 @@ function NavbarTop() {
 						<Dropdown.Item href="#/action-1">Jurisprudence</Dropdown.Item>
 						<Dropdown.Item href="#/action-2">Linear Algebra</Dropdown.Item>
 					</Dropdown.Menu>
-				</Dropdown>
-				<div style={styles.vl}></div>
+				</Dropdown> */}
+				{/* <div style={styles.vl}></div> */}
 
 				<img src={lesson} style={styles.navElement} />
 				<img src={level} style={styles.navElement} />
