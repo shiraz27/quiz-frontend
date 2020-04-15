@@ -59,7 +59,7 @@ export default function Dashboard() {
 					/>
 				</div>
 				<div style={{ position: 'absolute', left: 0 }}>
-					<LevelElement
+					<AllLevelElement
 						// lessonImg={lesson.lessonImg}
 						badge={level}
 						title="Test all levels"
@@ -142,6 +142,29 @@ function LevelElement(props) {
 		</div>
 	);
 }
+function AllLevelElement(props) {
+	const color = props.type === 'all' ? '#f5dc48' : '#8766fa';
+
+	return (
+		<div style={styles.alllevelDiv}>
+			<p style={styles.lessonTitle}>
+				<span
+					// src={blank}
+					style={{
+						height: '5vmin',
+						borderRadius: '50%',
+						background: color,
+						height: '5vh',
+						width: '5vh',
+					}}
+				>
+					<span style={{ color: 'white', margin: '10px' }}>{props.number}</span>
+				</span>{' '}
+				{props.title}
+			</p>
+		</div>
+	);
+}
 function LessonTitle(props) {
 	return (
 		<div style={styles.rowContainer}>
@@ -200,7 +223,15 @@ const styles = {
 		margin: '15px',
 		boxShadow: '0 4px 6px 2px rgba(2, 30, 47, 0.03)',
 		borderRadius: '4px',
-		border: '2px solid gray',
+		// borderRight: '10px solid #a1adbb',
+		// borderLeft: '10px solid #a1adbb',
+		borderTopWidth: '2px',
+		borderRightWidth: '2px',
+		borderLeftWidth: '2px',
+		borderBottomWidth: '10px',
+		borderStyle: 'solid',
+		borderColor: 'rgb(218, 238, 255)',
+		borderRadius: '16px',
 	},
 	levelDiv: {
 		display: 'flex',
@@ -214,7 +245,29 @@ const styles = {
 		margin: '15px',
 		boxShadow: '0 4px 6px 2px rgba(2, 30, 47, 0.03)',
 		borderRadius: '4px',
-		border: '2px solid gray',
+		borderLeft: '10px solid #8766fa',
+		// overflow: 'scroll',
+		// maxHeight: '122px',
+		maxWidth: '370px',
+		width: '15vw',
+		height: 'fit-content',
+		maxHeight: '150px',
+		textAlign: 'center',
+		padding: '10px',
+	},
+	alllevelDiv: {
+		display: 'flex',
+		flexDirection: 'column',
+		alignItems: 'center',
+		justifyContent: 'center',
+		fontSize: 'calc(10px + 2vmin)',
+		background: 'aliceblue',
+		maxWidth: '370px',
+		// width: 'fit-content',
+		margin: '15px',
+		boxShadow: '0 4px 6px 2px rgba(2, 30, 47, 0.03)',
+		borderRadius: '4px',
+		borderLeft: '10px solid #f5dc48',
 		// overflow: 'scroll',
 		// maxHeight: '122px',
 		maxWidth: '370px',
@@ -245,7 +298,8 @@ const styles = {
 		margin: '5px',
 		width: '-webkit-fill-available',
 		/* background: aliceblue; */
-		borderTop: '2px solid gray',
+		// borderTop: '2px solid gray',
+		// borderTop: '4px dashed #8766fa',
 		// borderTop: '4px solid rgb(135, 102, 250)'
 	},
 	vl: {
@@ -253,19 +307,26 @@ const styles = {
 		margin: '10px',
 	},
 	level: {
-		height: '100%',
+		// height: '100%',
 		display: 'flex',
 		flexDirection: 'row',
 		justifyContent: 'center',
 		background: 'rgb(245, 220, 72)',
 		padding: '5px',
 		margin: '1rem',
-		borderRight: '4px solid rgb(237, 186, 67)',
-		borderBottom: '4px solid rgb(237, 186, 67)',
-		borderRadius: '5%',
+		// borderRight: '4px solid rgb(237, 186, 67)',
+		// borderBottom: '4px solid rgb(237, 186, 67)',
+		// borderRadius: '5%',
 		position: 'absolute',
 		right: '0',
 		height: 'fit-content',
+		borderTopWidth: '2px',
+		borderRightWidth: '2px',
+		borderLeftWidth: '2px',
+		borderBottomWidth: '10px',
+		borderStyle: 'solid',
+		borderColor: '#e8d040',
+		borderRadius: '16px',
 	},
 	lessonImg: {
 		height: '10vmin',
