@@ -15,6 +15,8 @@ import trophyenabled from '../img/trophy.svg';
 import trophydisabled from '../img/trophydisabled.svg';
 import level from '../img/level.svg';
 import blank from '../img/blank.svg';
+import alltest from '../img/alltest.svg';
+import test from '../img/test.svg';
 
 //data
 let lessoList = [
@@ -38,7 +40,7 @@ let lessoList = [
 	},
 	{
 		id: 1,
-		title: 'Advanced training',
+		title: 'Advanced training for prooos',
 		badgeImg: badgedisabled,
 		lessonImg: lessonicon2,
 	},
@@ -50,25 +52,25 @@ export default function Dashboard() {
 			<NavbarTop />
 			<body style={{ background: 'white' }}>
 				<br />
-				<div style={{ position: 'absolute', right: 0 }}>
+				<div style={styles.container}>
 					<LevelElement
 						// lessonImg={lesson.lessonImg}
 						badge={level}
-						title="Test Level"
+						title="Beginner Level"
 						number="1"
 					/>
 				</div>
-				<div style={{ position: 'absolute', left: 0 }}>
-					<AllLevelElement
+				<div style={styles.container}>
+					{/* <AllLevelElement
 						// lessonImg={lesson.lessonImg}
 						badge={level}
-						title="Test all levels"
+						title="All beginner level"
 						number="9"
 						type="all"
-					/>
+					/> */}
 				</div>
 				<div style={styles.container}>
-					<Level level="Level 1" />
+					{/* <Level level="Level 1" /> */}
 					{lessoList.map((lesson) => (
 						<Link to="/quiz/maths/1/1">
 							{/* we'll be able to retrieve this data and fetch the adequate
@@ -82,16 +84,16 @@ export default function Dashboard() {
 					))}
 				</div>
 				<Trophy won={true} />
-				<div style={{ position: 'absolute', right: 0 }}>
+				{/* <div style={{ position: 'absolute', right: 0 }}>
 					<LevelElement
 						// lessonImg={lesson.lessonImg}
 						badge={level}
-						title="Test Level"
+						title="Test level"
 						number="2"
 					/>
-				</div>
+				</div> */}
 				<div style={styles.container}>
-					<Level level="Level 2" />
+					{/* <Level level="Level 2" /> */}
 					{lessoList.map((lesson) => (
 						<Link to="/quiz">
 							<LessonElement
@@ -111,32 +113,31 @@ export default function Dashboard() {
 function LessonElement(props) {
 	return (
 		<div style={styles.lessonDiv}>
-			<div style={styles.roundContainer}>
-				<img src={props.lessonImg} style={styles.lessonImg} />
-			</div>
+			<img src={props.lessonImg} style={styles.lessonImg} />
 			<LessonTitle badge={props.badge} title={props.title} />
 		</div>
 	);
 }
 
 function LevelElement(props) {
-	const color = props.type === 'all' ? '#f5dc48' : '#8766fa';
+	//const color = props.type === 'all' ? '#f5dc48' : '#8766fa';
 
 	return (
 		<div style={styles.levelDiv}>
+			<img src={test} style={{ height: '10vmin' }} />
 			<p style={styles.lessonTitle}>
-				<span
+				{/* <span
 					// src={blank}
 					style={{
 						height: '5vmin',
 						borderRadius: '50%',
-						background: color,
+						background: 'aliceblue',
 						height: '5vh',
 						width: '5vh',
 					}}
 				>
-					<span style={{ color: 'white', margin: '10px' }}>{props.number}</span>
-				</span>{' '}
+					<span style={{ color: 'black', margin: '10px' }}>{props.number}</span>
+				</span>{' '} */}
 				{props.title}
 			</p>
 		</div>
@@ -147,6 +148,7 @@ function AllLevelElement(props) {
 
 	return (
 		<div style={styles.alllevelDiv}>
+			<img src={alltest} style={{ height: '10vmin' }} />
 			<p style={styles.lessonTitle}>
 				<span
 					// src={blank}
@@ -213,15 +215,16 @@ const styles = {
 	},
 	lessonDiv: {
 		display: 'flex',
-		flexDirection: 'column',
+		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'center',
 		fontSize: 'calc(10px + 2vmin)',
-		background: 'aliceblue',
-		maxWidth: '370px',
-		width: '40vw',
+		background: 'white',
+		maxWidth: '500px',
+		width: '500px',
 		margin: '15px',
-		boxShadow: '0 4px 6px 2px rgba(2, 30, 47, 0.03)',
+		minWidth: '140px',
+		// boxShadow: '0 4px 6px 2px rgba(2, 30, 47, 0.03)',
 		borderRadius: '4px',
 		// borderRight: '10px solid #a1adbb',
 		// borderLeft: '10px solid #a1adbb',
@@ -230,27 +233,29 @@ const styles = {
 		borderLeftWidth: '2px',
 		borderBottomWidth: '10px',
 		borderStyle: 'solid',
-		borderColor: 'rgb(218, 238, 255)',
+		borderColor: 'rgb(217, 224, 230)',
 		borderRadius: '16px',
 	},
 	levelDiv: {
 		display: 'flex',
-		flexDirection: 'column',
+		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'center',
 		fontSize: 'calc(10px + 2vmin)',
-		background: 'aliceblue',
+		background: 'white',
 		maxWidth: '370px',
+		minWidth: 'min-content',
 		// width: 'fit-content',
 		margin: '15px',
-		boxShadow: '0 4px 6px 2px rgba(2, 30, 47, 0.03)',
-		borderRadius: '4px',
-		borderLeft: '10px solid #8766fa',
+		// boxShadow: '0 4px 6px 2px rgba(2, 30, 47, 0.03)',
+		// borderRadius: '4px',
+		// borderTop: '10px solid #8766fa',
 		// overflow: 'scroll',
 		// maxHeight: '122px',
-		maxWidth: '370px',
-		width: '15vw',
-		height: 'fit-content',
+		// border: '2px solid rgb(217, 224, 230)',
+		maxWidth: 'max-content',
+		// width: '15vw',
+		height: 'max-content',
 		maxHeight: '150px',
 		textAlign: 'center',
 		padding: '10px',
@@ -261,18 +266,19 @@ const styles = {
 		alignItems: 'center',
 		justifyContent: 'center',
 		fontSize: 'calc(10px + 2vmin)',
-		background: 'aliceblue',
-		maxWidth: '370px',
+		background: 'white',
+		maxWidth: 'max-content',
 		// width: 'fit-content',
 		margin: '15px',
-		boxShadow: '0 4px 6px 2px rgba(2, 30, 47, 0.03)',
+		border: '2px solid rgb(217, 224, 230)',
+		// boxShadow: '0 4px 6px 2px rgba(2, 30, 47, 0.03)',
 		borderRadius: '4px',
-		borderLeft: '10px solid #f5dc48',
+		// borderTop: '10px solid #f5dc48',
 		// overflow: 'scroll',
 		// maxHeight: '122px',
-		maxWidth: '370px',
+		minWidth: 'min-content',
 		width: '15vw',
-		height: 'fit-content',
+		height: 'max-content',
 		maxHeight: '150px',
 		textAlign: 'center',
 		padding: '10px',
@@ -330,7 +336,8 @@ const styles = {
 	},
 	lessonImg: {
 		height: '10vmin',
-		margin: '5px',
+		margin: '10px',
+		marginLeft: '15px',
 		// background: 'aliceblue',
 		// borderRadius: '50%',
 		// border: '10px solid aliceblue',

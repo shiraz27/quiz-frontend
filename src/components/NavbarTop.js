@@ -90,9 +90,9 @@ const styles = {
 		fontSize: '0.75em',
 	},
 	navBox: {
-		// borderBottom: '2px solid gray',
-		background: 'aliceblue',
-		boxShadow: '0 2px 4px 0 rgba(0,0,0,.05)',
+		borderBottom: '2px solid rgb(217, 224, 230)',
+		background: 'white',
+		// boxShadow: '0 2px 4px 0 rgba(0,0,0,.05)',
 		padding: '0 !important',
 	},
 	navElement: {
