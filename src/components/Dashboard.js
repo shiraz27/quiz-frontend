@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 //packages
 import { Link } from 'react-router-dom';
+import { Line } from 'rc-progress';
 
 //components
 import NavbarTop from './NavbarTop';
@@ -17,6 +18,7 @@ import level from '../img/level.svg';
 import blank from '../img/blank.svg';
 import alltest from '../img/alltest.svg';
 import test from '../img/test.svg';
+import lesson from '../img/lesson.svg';
 
 //data
 let lessoList = [
@@ -47,30 +49,38 @@ let lessoList = [
 ];
 
 export default function Dashboard() {
+	const [progress, setProgress] = useState(80);
+
 	return (
 		<div>
 			<NavbarTop />
+
 			<body style={{ background: 'white' }}>
 				<br />
+				{/* <AllLevelElement
+					badge={level}
+					title="Test all levels"
+					number="9"
+					type="all"
+				/> */}
 				<div style={styles.container}>
-					<LevelElement
-						// lessonImg={lesson.lessonImg}
-						badge={level}
-						title="Beginner Level"
-						number="1"
-					/>
+					<div style={{ width: '250px' }}>
+						<Line
+							percent={progress}
+							strokeWidth="4"
+							strokeColor={
+								progress <= 34
+									? '#e36464ff'
+									: progress <= 67
+									? '#f5dc48'
+									: '#6ed6d2ff'
+							}
+						/>
+					</div>
+					<LevelElement badge={level} title="Beginner Level" number="1" />
 				</div>
+				<div style={styles.container}></div>
 				<div style={styles.container}>
-					{/* <AllLevelElement
-						// lessonImg={lesson.lessonImg}
-						badge={level}
-						title="All beginner level"
-						number="9"
-						type="all"
-					/> */}
-				</div>
-				<div style={styles.container}>
-					{/* <Level level="Level 1" /> */}
 					{lessoList.map((lesson) => (
 						<Link to="/quiz/maths/1/1">
 							{/* we'll be able to retrieve this data and fetch the adequate
@@ -93,7 +103,15 @@ export default function Dashboard() {
 					/>
 				</div> */}
 				<div style={styles.container}>
-					{/* <Level level="Level 2" /> */}
+					<LevelElement
+						// lessonImg={lesson.lessonImg}
+						badge={level}
+						title="Intermediate Level"
+						number="1"
+					/>
+				</div>
+				<div style={styles.container}>
+					<Level level="Test all levels" />
 					{lessoList.map((lesson) => (
 						<Link to="/quiz">
 							<LessonElement
@@ -112,7 +130,10 @@ export default function Dashboard() {
 
 function LessonElement(props) {
 	return (
-		<div style={styles.lessonDiv}>
+		<div
+			className="lesson-element"
+			// style={styles.lessonDiv}
+		>
 			<img src={props.lessonImg} style={styles.lessonImg} />
 			<LessonTitle badge={props.badge} title={props.title} />
 		</div>
@@ -120,42 +141,28 @@ function LessonElement(props) {
 }
 
 function LevelElement(props) {
-	//const color = props.type === 'all' ? '#f5dc48' : '#8766fa';
-
 	return (
 		<div style={styles.levelDiv}>
 			<img src={test} style={{ height: '10vmin' }} />
 			<p style={styles.lessonTitle}>
-				{/* <span
-					// src={blank}
-					style={{
-						height: '5vmin',
-						borderRadius: '50%',
-						background: 'aliceblue',
-						height: '5vh',
-						width: '5vh',
-					}}
-				>
-					<span style={{ color: 'black', margin: '10px' }}>{props.number}</span>
-				</span>{' '} */}
-				{props.title}
+				{props.title}{' '}
+				<Link to="/quiz/maths/1/1">
+					<span style={{ color: 'black', margin: '10px' }}>| test all</span>
+				</Link>
 			</p>
 		</div>
 	);
 }
 function AllLevelElement(props) {
-	const color = props.type === 'all' ? '#f5dc48' : '#8766fa';
-
 	return (
 		<div style={styles.alllevelDiv}>
 			<img src={alltest} style={{ height: '10vmin' }} />
 			<p style={styles.lessonTitle}>
 				<span
-					// src={blank}
 					style={{
 						height: '5vmin',
 						borderRadius: '50%',
-						background: color,
+						background: '#f5dc48',
 						height: '5vh',
 						width: '5vh',
 					}}
@@ -220,10 +227,33 @@ const styles = {
 		justifyContent: 'center',
 		fontSize: 'calc(10px + 2vmin)',
 		background: 'white',
-		maxWidth: '500px',
-		width: '500px',
+		width: '40vw',
+		minWidth: '300px',
 		margin: '15px',
-		minWidth: '140px',
+		// minWidth: 'fint-content',
+		// boxShadow: '0 4px 6px 2px rgba(2, 30, 47, 0.03)',
+		borderRadius: '4px',
+		// borderRight: '10px solid #a1adbb',
+		// borderLeft: '10px solid #a1adbb',
+		borderTopWidth: '2px',
+		borderRightWidth: '2px',
+		borderLeftWidth: '2px',
+		borderBottomWidth: '10px',
+		borderStyle: 'solid',
+		borderColor: 'rgb(217, 224, 230)',
+		borderRadius: '16px',
+	},
+	'lessonDiv:hover': {
+		display: 'flex',
+		flexDirection: 'row',
+		alignItems: 'center',
+		justifyContent: 'center',
+		fontSize: 'calc(10px + 2vmin)',
+		background: 'red',
+		width: '40vw',
+		minWidth: '300px',
+		margin: '15px',
+		// minWidth: 'fint-content',
 		// boxShadow: '0 4px 6px 2px rgba(2, 30, 47, 0.03)',
 		borderRadius: '4px',
 		// borderRight: '10px solid #a1adbb',
@@ -261,6 +291,8 @@ const styles = {
 		padding: '10px',
 	},
 	alllevelDiv: {
+		position: 'absolute',
+		right: '0',
 		display: 'flex',
 		flexDirection: 'column',
 		alignItems: 'center',
@@ -272,7 +304,7 @@ const styles = {
 		margin: '15px',
 		border: '2px solid rgb(217, 224, 230)',
 		// boxShadow: '0 4px 6px 2px rgba(2, 30, 47, 0.03)',
-		borderRadius: '4px',
+		borderRadius: '16px',
 		// borderTop: '10px solid #f5dc48',
 		// overflow: 'scroll',
 		// maxHeight: '122px',
@@ -353,7 +385,7 @@ const styles = {
 		// background: '#e0f1ff',
 		// padding: '20px',
 	},
-	badge: { height: '5vmin' },
+	badge: { height: '5vmin', margin: '5px', alignSelf: 'center' },
 	lessonTitle: {
 		fontWeight: '500',
 		color: 'black',
