@@ -309,7 +309,11 @@ function Answer(props) {
 	const handleShow = () => setShow(true);
 	return (
 		<>
-			<button style={styles.answer} onClick={handleShow}>
+			<button
+				// style={styles.answer}
+				onClick={handleShow}
+				className="answer-element"
+			>
 				{props.showCorrect &&
 					(checked === props.correct ? (
 						<IoIosCheckmark style={styles.correct} />

@@ -13,6 +13,11 @@
 .dropdown-toggle::after {
 	color: gray !important;
 }
+.dropdown-toggle::after {
+	/* border-right: .3em solid transparent; 
+    border-bottom: 0; */
+	border: 0 solid transparent !important;
+}
 .dropdown-item {
 	/* background-color: #ded6fc !important; */
 	color: black !important;
@@ -23,6 +28,26 @@ dropdown-item:focus {
 	/* background-color: #ded6fc !important; */
 	background: aliceblue !important;
 }
+a.dropdown-item:hover {
+	/* background-color: #ded6fc !important; */
+	color: #ae97fb !important;
+}
+.progress-container {
+	font-family: 'din-round';
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
+	background: #d7f3ff4f;
+	padding: 2rem;
+	/* width: 300px; */
+	width: 67vw;
+	min-width: 300px;
+	border: 4px dashed #9b7ffa !important;
+	border-radius: 16px;
+	/* box-shadow: 0 4px 6px -3px rgba(2, 30, 47, 0.09); */
+}
 .dropdown-menu {
 	/* background-color: #ded6fc !important; */
 	/* color: white !important; */
@@ -30,6 +55,13 @@ dropdown-item:focus {
 	margin: 0.125rem -29px 0 !important;
 	border: 2px solid rgb(217, 224, 230) !important;
 	border-radius: 16px !important;
+}
+.dropdown-menu.show {
+	position: absolute;
+	will-change: transform;
+	top: 0px;
+	left: 0px;
+	transform: translate3d(0px, 74px, 0px) !important;
 }
 .modal-footer {
 	border-top: 1px solid transparent !important;
@@ -43,7 +75,7 @@ dropdown-item:focus {
 	background: aliceblue;
 }
 a:hover {
-	color: #f9f7ff !important;
+	color: transparent !important;
 	background-color: white !important;
 }
 .modal-content {
@@ -56,12 +88,45 @@ a:hover {
 	/* display: contents; */
 }
 .lesson-element:hover {
-	/* background: #f9f7ff;
+	background: #f0faff;
+	/* width: 40vw; */
+	min-width: 300px;
+	margin: 15px;
 	border-radius: 16px;
 	border-width: 2px 2px 10px;
-	border-style: solid; */
-	background: #f9f7ff;
-	border-color: rgb(155, 127, 250);
+	border-style: solid;
+	border-color: rgb(210, 241, 255);
+}
+
+.answer-element {
+	width: 15rem;
+	height: 100%;
+	margin: 1rem;
+	padding: 1rem;
+	border-radius: 16px;
+	border-width: 2px 2px 10px;
+	border-style: solid;
+	border-color: rgb(217, 224, 230);
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(10px + 2vmin);
+	background: white;
+}
+.answer-element:hover {
+	background: #f0faff;
+	width: 15rem;
+	height: 100%;
+	border-radius: 16px;
+	border-width: 2px 2px 10px;
+	border-style: solid;
+	border-color: rgb(210, 241, 255);
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(10px + 2vmin);
 }
 .lesson-element {
 	display: flex;
@@ -70,16 +135,35 @@ a:hover {
 	justify-content: center;
 	font-size: calc(10px + 2vmin);
 	background: white;
-	width: 40vw;
+	width: 25vw;
 	min-width: 300px;
+	height: fit-content;
 	margin: 15px;
 	border-radius: 16px;
 	border-width: 2px 2px 10px;
 	border-style: solid;
 	border-color: rgb(217, 224, 230);
+	padding: 1%;
 }
-.navbar {
+.lesson-element-answered {
 	display: flex;
+	flex-direction: row;
 	align-items: center;
 	justify-content: center;
+	font-size: calc(10px + 2vmin);
+	background: #f0faff;
+	width: 25vw;
+	min-width: 300px;
+	height: fit-content;
+	margin: 15px;
+	border-radius: 16px;
+	border-width: 2px 2px 10px;
+	border-style: solid;
+	border-color: rgb(210, 241, 255);
+	padding: 1%;
+}
+.navbar {
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
 }

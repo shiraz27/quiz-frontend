@@ -5,6 +5,7 @@ import './App.css';
 import Landing from './components/Landing';
 import Dashboard from './components/Dashboard';
 import Quiz from './components/Quiz';
+import Profile from './components/Profile';
 
 function App() {
 	return (
@@ -18,6 +19,9 @@ function App() {
 				</Route>
 				<Route path="/">
 					<Landing />
+				</Route>
+				<Route path="/me">
+					<Profile />
 				</Route>
 			</Switch>
 		</Router>

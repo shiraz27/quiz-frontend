@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 //packages
 import { Link } from 'react-router-dom';
 import { Line } from 'rc-progress';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 //components
 import NavbarTop from './NavbarTop';
@@ -27,24 +28,28 @@ let lessoList = [
 		title: 'Basics training',
 		badgeImg: badgeenabled,
 		lessonImg: lessonicon,
+		answered: true,
 	},
 	{
 		id: 1,
 		title: 'Core training',
 		badgeImg: badgedisabled,
 		lessonImg: lessonicon2,
+		answered: true,
 	},
 	{
 		id: 1,
 		title: 'Intermediate training',
 		badgeImg: badgedisabled,
 		lessonImg: lessonicon2,
+		answered: true,
 	},
 	{
 		id: 1,
-		title: 'Advanced training for prooos',
+		title: 'Advanced training for everyone',
 		badgeImg: badgedisabled,
 		lessonImg: lessonicon2,
+		answered: false,
 	},
 ];
 
@@ -55,39 +60,44 @@ export default function Dashboard() {
 		<div>
 			<NavbarTop />
 
-			<body style={{ background: 'white' }}>
-				<br />
+			<body style={styles.container}>
 				{/* <AllLevelElement
 					badge={level}
 					title="Test all levels"
 					number="9"
 					type="all"
 				/> */}
-				<div style={styles.container}>
-					<div style={{ width: '250px' }}>
-						<Line
-							percent={progress}
-							strokeWidth="4"
-							strokeColor={
-								progress <= 34
-									? '#e36464ff'
-									: progress <= 67
-									? '#f5dc48'
-									: '#6ed6d2ff'
-							}
-						/>
+				<br />
+				<div
+					// style={styles.container}
+					className="progress-container"
+				>
+					<span style={{ fontSize: 'calc(10px + 2vmin)' }}>
+						{'course progress: ' + progress + '%'}
+					</span>
+					<div
+						style={{
+							width: '250px',
+							display: 'block',
+							flexDirection: 'row',
+							alignItems: 'center',
+						}}
+					>
+						<Line percent={progress} strokeWidth="4" strokeColor="#9b7ffa" />
 					</div>
-					<LevelElement badge={level} title="Beginner Level" number="1" />
 				</div>
-				<div style={styles.container}></div>
+				<br />
+
 				<div style={styles.container}>
+					{/* <LevelElement badge={level} title="Beginner Level" number="1" /> */}
 					{lessoList.map((lesson) => (
 						<Link to="/quiz/maths/1/1">
 							{/* we'll be able to retrieve this data and fetch the adequate
 							resources */}
 							<LessonElement
 								lessonImg={lesson.lessonImg}
-								badge={lesson.badgeImg}
+								// badge={lesson.badgeImg}
+								answered={lesson.answered}
 								title={lesson.title}
 							/>
 						</Link>
@@ -102,22 +112,23 @@ export default function Dashboard() {
 						number="2"
 					/>
 				</div> */}
-				<div style={styles.container}>
+				{/* <div style={styles.container}>
 					<LevelElement
 						// lessonImg={lesson.lessonImg}
 						badge={level}
 						title="Intermediate Level"
 						number="1"
 					/>
-				</div>
+				</div> */}
 				<div style={styles.container}>
-					<Level level="Test all levels" />
+					{/* <Level level="Test all levels" /> */}
 					{lessoList.map((lesson) => (
 						<Link to="/quiz">
 							<LessonElement
 								lessonImg={lesson.lessonImg}
 								badge={lesson.badgeImg}
 								title={lesson.title}
+								answered={lesson.answered}
 							/>
 						</Link>
 					))}
@@ -129,12 +140,14 @@ export default function Dashboard() {
 }
 
 function LessonElement(props) {
+	const cssClass =
+		props.answered == true ? 'lesson-element-answered' : 'lesson-element';
 	return (
 		<div
-			className="lesson-element"
+			className={cssClass}
 			// style={styles.lessonDiv}
 		>
-			<img src={props.lessonImg} style={styles.lessonImg} />
+			{/* <img src={props.lessonImg} style={styles.lessonImg} /> */}
 			<LessonTitle badge={props.badge} title={props.title} />
 		</div>
 	);
@@ -142,15 +155,37 @@ function LessonElement(props) {
 
 function LevelElement(props) {
 	return (
-		<div style={styles.levelDiv}>
-			<img src={test} style={{ height: '10vmin' }} />
-			<p style={styles.lessonTitle}>
-				{props.title}{' '}
-				<Link to="/quiz/maths/1/1">
-					<span style={{ color: 'black', margin: '10px' }}>| test all</span>
-				</Link>
-			</p>
-		</div>
+		<Link
+		// to="/quiz/maths/1/1"
+		>
+			{/* <div
+				// className="dropdown-menu"
+				style={styles.levelDiv}
+			>
+				<img src={test} style={{ height: '10vmin' }} />
+				{/* <p style={styles.lessonTitle}>
+					{props.title}
+					{/* <span style={{ color: 'black', margin: '10px' }}>- TEST</span> 
+				</p> 
+			</div> */}
+			<Dropdown>
+				<Dropdown.Toggle
+					id="dropdown-basic"
+					variant="link"
+					style={{ color: '#d9e0e6', fontSize: '2rem' }}
+				>
+					<img src={test} style={{ height: '10vmin' }} />
+				</Dropdown.Toggle>
+				<Dropdown.Menu>
+					<Dropdown.Item>Test | {props.title}</Dropdown.Item>
+					<Dropdown.Divider />
+					<Dropdown.Item href="#/action-1">Arabic</Dropdown.Item>
+					<Dropdown.Item href="#/action-3">Programming</Dropdown.Item>
+					<Dropdown.Item href="#/action-1">Jurisprudence</Dropdown.Item>
+					<Dropdown.Item href="#/action-2">Linear Algebra</Dropdown.Item>
+				</Dropdown.Menu>
+			</Dropdown>
+		</Link>
 	);
 }
 function AllLevelElement(props) {
@@ -177,7 +212,7 @@ function AllLevelElement(props) {
 function LessonTitle(props) {
 	return (
 		<div style={styles.rowContainer}>
-			<img src={props.badge} style={styles.badge} />
+			{/* <img src={props.badge} style={styles.badge} /> */}
 			{/* <div style={styles.vl}></div> */}
 			<p style={styles.lessonTitle}>{props.title}</p>
 		</div>
@@ -231,30 +266,7 @@ const styles = {
 		minWidth: '300px',
 		margin: '15px',
 		// minWidth: 'fint-content',
-		// boxShadow: '0 4px 6px 2px rgba(2, 30, 47, 0.03)',
-		borderRadius: '4px',
-		// borderRight: '10px solid #a1adbb',
-		// borderLeft: '10px solid #a1adbb',
-		borderTopWidth: '2px',
-		borderRightWidth: '2px',
-		borderLeftWidth: '2px',
-		borderBottomWidth: '10px',
-		borderStyle: 'solid',
-		borderColor: 'rgb(217, 224, 230)',
-		borderRadius: '16px',
-	},
-	'lessonDiv:hover': {
-		display: 'flex',
-		flexDirection: 'row',
-		alignItems: 'center',
-		justifyContent: 'center',
-		fontSize: 'calc(10px + 2vmin)',
-		background: 'red',
-		width: '40vw',
-		minWidth: '300px',
-		margin: '15px',
-		// minWidth: 'fint-content',
-		// boxShadow: '0 4px 6px 2px rgba(2, 30, 47, 0.03)',
+		boxShadow: '0 4px 6px 2px rgba(2, 30, 47, 0.03)',
 		borderRadius: '4px',
 		// borderRight: '10px solid #a1adbb',
 		// borderLeft: '10px solid #a1adbb',
@@ -394,7 +406,7 @@ const styles = {
 		textAlign: 'center',
 	},
 	trophy: {
-		height: '20vmin',
+		height: '15vmin',
 	},
 	levelText: {
 		fontWeight: '700',

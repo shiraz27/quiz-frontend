@@ -7,73 +7,75 @@ import profile from '../img/profile.svg';
 import level from '../img/level.svg';
 import lesson from '../img/lesson.svg';
 import course from '../img/course.svg';
+import test from '../img/test.svg';
 
 function NavbarTop() {
 	return (
-		<Navbar style={styles.navBox}>
-			<Navbar.Brand>
-				<Link to="/dashboard">
-					{/* <img
-						src={logo}
-						className="App-logo"
-						alt="logo"
-						style={styles.navElement}
-					/> */}
-				</Link>
-			</Navbar.Brand>
-			<Navbar.Toggle />
-			<Navbar.Collapse className="justify-content-end">
-				{/* <Dropdown>
-					<Dropdown.Toggle
-						id="dropdown-basic"
-						variant="link"
-						style={{ color: '#d9e0e6', fontSize: '2rem' }}
-					>
-						<img src={course} style={styles.navElement} />
-					</Dropdown.Toggle>
-					<Dropdown.Menu>
-						<Dropdown.Item href="#/action-1">Arabic</Dropdown.Item>
-						<Dropdown.Item href="#/action-3">Programming</Dropdown.Item>
-						<Dropdown.Item href="#/action-1">Jurisprudence</Dropdown.Item>
-						<Dropdown.Item href="#/action-2">Linear Algebra</Dropdown.Item>
-					</Dropdown.Menu>
-				</Dropdown> */}
-				{/* <div style={styles.vl}></div> */}
-
-				{/* <img src={lesson} style={styles.navElement} />*/}
-				{/* <img src={level} style={styles.navElement} /> */}
-				<Dropdown>
-					<Dropdown.Toggle
-						id="dropdown-basic"
-						variant="link"
-						style={{ color: '#d9e0e6', fontSize: '2rem' }}
-					>
-						<img src={course} style={styles.navElement} />
-					</Dropdown.Toggle>
-					<Dropdown.Menu>
-						<Dropdown.Item href="#/action-1">Arabic</Dropdown.Item>
-						<Dropdown.Item href="#/action-3">Programming</Dropdown.Item>
-						<Dropdown.Item href="#/action-1">Jurisprudence</Dropdown.Item>
-						<Dropdown.Item href="#/action-2">Linear Algebra</Dropdown.Item>
-					</Dropdown.Menu>
-				</Dropdown>
-				<img src={level} style={styles.navElement} />
-
-				<Dropdown>
-					<Dropdown.Toggle
-						id="dropdown-basic"
-						variant="link"
-						style={{ color: '#d9e0e6', fontSize: '2rem' }}
-					>
-						<img src={profile} style={styles.navElement} />
-					</Dropdown.Toggle>
-					<Dropdown.Menu>
-						<Dropdown.Item href="#/action-1">My profile</Dropdown.Item>
-						<Dropdown.Item href="#/action-3">Settings</Dropdown.Item>
-					</Dropdown.Menu>
-				</Dropdown>
-			</Navbar.Collapse>
-		</Navbar>
+		<div style={styles.navBox}>
+			<Dropdown>
+				<Dropdown.Toggle
+					id="dropdown-basic"
+					variant="link"
+					style={{ color: '#d9e0e6', fontSize: '2rem' }}
+				>
+					<img src={course} style={styles.navElement} />
+				</Dropdown.Toggle>
+				<Dropdown.Menu>
+					<Dropdown.Item>My Courses</Dropdown.Item>
+					<Dropdown.Divider />
+					<Dropdown.Item href="#/action-1">Arabic</Dropdown.Item>
+					<Dropdown.Item href="#/action-3">Programming</Dropdown.Item>
+					<Dropdown.Item href="#/action-1">Jurisprudence</Dropdown.Item>
+					<Dropdown.Item href="#/action-2">Linear Algebra</Dropdown.Item>
+				</Dropdown.Menu>
+			</Dropdown>
+			<Dropdown>
+				<Dropdown.Toggle
+					id="dropdown-basic"
+					variant="link"
+					style={{ color: '#d9e0e6', fontSize: '2rem' }}
+				>
+					<img src={level} style={styles.navElement} />
+				</Dropdown.Toggle>
+				<Dropdown.Menu>
+					<Dropdown.Item>Test levels</Dropdown.Item>
+					<Dropdown.Divider />
+					<Dropdown.Item href="#/action-1">Beginner Level</Dropdown.Item>
+					<Dropdown.Item href="#/action-3">Intermediate Level</Dropdown.Item>
+					<Dropdown.Item href="#/action-1">Advanced Level</Dropdown.Item>
+				</Dropdown.Menu>
+			</Dropdown>
+			<Dropdown>
+				<Dropdown.Toggle
+					id="dropdown-basic"
+					variant="link"
+					style={{ color: '#d9e0e6', fontSize: '2rem' }}
+				>
+					<img
+						src={test}
+						style={{
+							height: '8vmin',
+							margin: '5px',
+						}}
+					/>
+				</Dropdown.Toggle>
+				<Dropdown.Menu>
+					<Dropdown.Item href="#/action-2">Test all levels</Dropdown.Item>
+				</Dropdown.Menu>
+			</Dropdown>
+			<Dropdown>
+				<Dropdown.Toggle
+					id="dropdown-basic"
+					variant="link"
+					style={{ color: '#d9e0e6', fontSize: '2rem' }}
+				>
+					<img src={profile} style={styles.navElement} />
+				</Dropdown.Toggle>
+				<Dropdown.Menu>
+					<Dropdown.Item href="/me">My Account</Dropdown.Item>
+				</Dropdown.Menu>
+			</Dropdown>
+		</div>
 	);
 }
 
@@ -98,7 +100,7 @@ const styles = {
 		padding: '0 !important',
 		display: 'flex',
 		alignItems: 'center',
-		justifyContent: 'center',
+		justifyContent: 'space-evenly',
 	},
 	navElement: {
 		height: '7vmin',
