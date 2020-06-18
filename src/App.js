@@ -11,18 +11,36 @@ function App() {
 	return (
 		<Router>
 			<Switch>
-				<Route path="/quiz">
-					<Quiz />
-				</Route>
-				<Route path="/dashboard">
-					<Dashboard />
-				</Route>
 				<Route path="/">
 					<Landing />
 				</Route>
-				<Route path="/me">
+				{/* <Route path="/login">
 					<Profile />
+				</Route> */}
+				{/* <Route path="/register">
+					<Profile />
+				</Route> */}
+				{/* <Route path="/resetpassword">
+					<Profile />
+				</Route> */}
+				<Route path="/dashboard">
+					<Dashboard />
 				</Route>
+				{/* <Route path="/course:id">
+					<Dashboard />
+				</Route> */}
+				{/* <Route path="/string/string:name">
+					<Dashboard />
+				</Route> */}
+				<Route path="/quiz">
+					<Quiz />
+				</Route>
+				{/* <Route path="/course:id/lesson:id">
+					<Dashboard />
+				</Route> */}
+				{/* <Route path="/me">
+					<Profile />
+				</Route> */}
 			</Switch>
 		</Router>
 	);
