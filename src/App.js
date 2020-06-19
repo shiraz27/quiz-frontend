@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import logo from './logo.svg';
 import './App.css';
 import Landing from './components/Landing';
 import Dashboard from './components/Dashboard';
@@ -11,8 +10,17 @@ function App() {
 	return (
 		<Router>
 			<Switch>
+				<Route path="/quiz">
+					<Quiz />
+				</Route>
+				<Route path="/dashboard">
+					<Dashboard />
+				</Route>
 				<Route path="/">
 					<Landing />
+				</Route>
+				<Route path="/me">
+					<Profile />
 				</Route>
 				{/* <Route path="/login">
 					<Profile />
@@ -23,18 +31,13 @@ function App() {
 				{/* <Route path="/resetpassword">
 					<Profile />
 				</Route> */}
-				<Route path="/dashboard">
-					<Dashboard />
-				</Route>
 				{/* <Route path="/course:id">
 					<Dashboard />
 				</Route> */}
 				{/* <Route path="/string/string:name">
 					<Dashboard />
 				</Route> */}
-				<Route path="/quiz">
-					<Quiz />
-				</Route>
+
 				{/* <Route path="/course:id/lesson:id">
 					<Dashboard />
 				</Route> */}

@@ -1,82 +1,68 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Navbar from 'react-bootstrap/Navbar';
+import React, { useState, useEffect} from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
+import Form from 'react-bootstrap/Form'
+
 import logo from '../img/logo.svg';
+import search from '../img/search.svg';
+
+
 import profile from '../img/profile.svg';
-import level from '../img/level.svg';
-import lesson from '../img/lesson.svg';
-import course from '../img/course.svg';
-import test from '../img/test.svg';
+
+function useWindowWidth() {
+	
+  }
 
 function NavbarTop() {
+	const [windowWidth, setWidth] = useState(window.innerWidth);
+	
+	useEffect(() => {
+	  const handleResize = () => setWidth(window.innerWidth);
+	  window.addEventListener('resize', handleResize);
+	  return () => {
+		window.removeEventListener('resize', handleResize);
+	  };
+	});
+	
+	// const [windowWidth, setwindowWidth] = useState(window.innerWidth);
 	return (
-		<div style={styles.navBox}>
-			<Dropdown>
-				<Dropdown.Toggle
-					id="dropdown-basic"
-					variant="link"
-					style={{ color: '#d9e0e6', fontSize: '2rem' }}
-				>
-					<img src={course} style={styles.navElement} />
-				</Dropdown.Toggle>
-				<Dropdown.Menu>
-					<Dropdown.Item>My Courses</Dropdown.Item>
-					<Dropdown.Divider />
-					<Dropdown.Item href="#/action-1">Arabic</Dropdown.Item>
-					<Dropdown.Item href="#/action-3">Programming</Dropdown.Item>
-					<Dropdown.Item href="#/action-1">Jurisprudence</Dropdown.Item>
-					<Dropdown.Item href="#/action-2">Linear Algebra</Dropdown.Item>
-				</Dropdown.Menu>
-			</Dropdown>
-			<Dropdown>
-				<Dropdown.Toggle
-					id="dropdown-basic"
-					variant="link"
-					style={{ color: '#d9e0e6', fontSize: '2rem' }}
-				>
-					<img src={level} style={styles.navElement} />
-				</Dropdown.Toggle>
-				<Dropdown.Menu>
-					<Dropdown.Item>Test levels</Dropdown.Item>
-					<Dropdown.Divider />
-					<Dropdown.Item href="#/action-1">Beginner Level</Dropdown.Item>
-					<Dropdown.Item href="#/action-3">Intermediate Level</Dropdown.Item>
-					<Dropdown.Item href="#/action-1">Advanced Level</Dropdown.Item>
-				</Dropdown.Menu>
-			</Dropdown>
-			<Dropdown>
-				<Dropdown.Toggle
-					id="dropdown-basic"
-					variant="link"
-					style={{ color: '#d9e0e6', fontSize: '2rem' }}
-				>
-					<img
-						src={test}
-						style={{
-							height: '8vmin',
-							margin: '5px',
-						}}
-					/>
-				</Dropdown.Toggle>
-				<Dropdown.Menu>
-					<Dropdown.Item href="#/action-2">Test all levels</Dropdown.Item>
-				</Dropdown.Menu>
-			</Dropdown>
-			<Dropdown>
-				<Dropdown.Toggle
-					id="dropdown-basic"
-					variant="link"
-					style={{ color: '#d9e0e6', fontSize: '2rem' }}
-				>
-					<img src={profile} style={styles.navElement} />
-				</Dropdown.Toggle>
-				<Dropdown.Menu>
-					<Dropdown.Item href="/me">My Account</Dropdown.Item>
-				</Dropdown.Menu>
-			</Dropdown>
+		<div style={{boxShadow: '0 2px 4px 0 rgba(0,0,0,.05)',}}>
+			<div style={styles.navBox}>
+				<span style={{
+					display: 'flex',
+					flexDirection: 'row',
+					alignItems: 'center',
+					justifyContent: 'center',
+					marginLeft: '15%'
+				}}>
+					<img src={logo} style={{height: '10vmin'}}/>
+					<span style={{fontFamily: 'din-round, sans-serif',}}>ArabicaLearn</span>
+				</span>
+				{windowWidth >= 1000 ? <Form>
+					<Form.Group controlId="formBasicSearch">
+						<img src={search} style={{height: '15px', marginLeft: '15px', marginRight: '15px'}}/>
+						<Form.Control type="text" placeholder="Search"/>
+					</Form.Group>
+				</Form> 
+				: 
+				<div className="search">						
+					<img src={search} style={{height: '25px'}}/>
+				</div>
+				}	
+				<Dropdown style={{marginRight: '15%'}}>
+					<Dropdown.Toggle
+						id="dropdown-basic"
+						variant="link"
+						style={{ color: '#d9e0e6', fontSize: '2rem' }}
+					>
+						<img src={profile} style={styles.navElement} />
+					</Dropdown.Toggle>
+					<Dropdown.Menu>
+						<Dropdown.Item href="/me">My Account</Dropdown.Item>
+					</Dropdown.Menu>
+				</Dropdown>
+			</div>
 		</div>
-	);
+			);
 }
 
 const styles = {
@@ -94,17 +80,19 @@ const styles = {
 		fontSize: '0.75em',
 	},
 	navBox: {
-		borderBottom: '2px solid rgb(217, 224, 230)',
 		background: 'white',
-		// boxShadow: '0 2px 4px 0 rgba(0,0,0,.05)',
-		padding: '0 !important',
 		display: 'flex',
 		alignItems: 'center',
-		justifyContent: 'space-evenly',
+		justifyContent: 'space-between',
+		marginBottom: '5px',
+		// marginRight: '15%',
+		// marginLeft: '15%',
+		paddingTop: '1%',
+		paddingBottom: '1%',
+		width: '-webkit-fill-available;'
 	},
 	navElement: {
-		height: '7vmin',
-		margin: '5px',
+		height: '6vmin',
 	},
 	vl: {
 		margin: '10px',
