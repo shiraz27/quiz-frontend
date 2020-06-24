@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from "react";
 
 //packages
 import { Link } from "react-router-dom";
@@ -60,14 +60,14 @@ let lessoList = [
 export default function Dashboard() {
   const [progress, setProgress] = useState(80);
   const [windowWidth, setWidth] = useState(window.innerWidth);
-	
-	useEffect(() => {
-	  const handleResize = () => setWidth(window.innerWidth);
-	  window.addEventListener('resize', handleResize);
-	  return () => {
-		window.removeEventListener('resize', handleResize);
-	  };
-	});
+
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  });
   return (
     <div>
       <NavbarTop />
@@ -79,10 +79,11 @@ export default function Dashboard() {
               marginTop: "3%",
               fontFamily: "din-round, sans-serif",
               color: "#D0D6DD",
-              fontSize: "2rem",
+              fontSize: "1rem",
               textAlign: "left",
               marginLeft: "15%",
             }}
+            className="page-title"
           >
             Courses
           </p>
@@ -94,51 +95,58 @@ export default function Dashboard() {
             }}
           />
         </div>
-        <div className={windowWidth >= 1000 ? 'course-card-container' : 'course-card-container-mobile'}>
-          <div className="course-card">
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                // alignItems: "center",
-                justifyContent: "center",
-                marginTop: "1rem",
-              }}
-            >
-              <img src={info} style={{ height: "20px" }} />
-              <p
+        <div
+          className={
+            windowWidth >= 1000
+              ? "course-card-container"
+              : "course-card-container-mobile"
+          }
+        >
+          <Link to="/course">
+            <div className="course-card">
+              <div
                 style={{
-                  fontFamily: "din-round, sans-serif",
-                  color: "#8edaff",
-                  fontSize: "1rem",
-                  textAlign: "center",
-                  marginBottom: "0px !important",
-                  marginLeft: "10px",
+                  display: "flex",
+                  flexDirection: "row",
+                  // alignItems: "center",
+                  justifyContent: "center",
                 }}
               >
-                By ArabicaLearn
+                <img src={info} style={{ height: "15px" }} />
+                <p
+                  style={{
+                    fontFamily: "din-round, sans-serif",
+                    color: "#8edaff",
+                    fontSize: "0.75rem",
+                    textAlign: "center",
+                    marginBottom: "0px !important",
+                    marginLeft: "10px",
+                  }}
+                >
+                  By ArabicaLearn
+                </p>
+              </div>
+              <img
+                src={readingCourse}
+                style={{
+                  height: "150px",
+                  marginLeft: "15px",
+                  marginRight: "15px",
+                }}
+              />
+              <p
+                style={{
+                  fontFamily: "din-round, sans-serif",
+                  color: "black",
+                  fontSize: "1.5rem",
+                  textAlign: "center",
+                  marginBottom: "0px !important",
+                }}
+              >
+                Arabic Fundamentals 1 Reading
               </p>
             </div>
-            <img
-              src={readingCourse}
-              style={{
-                height: "150px",
-                marginLeft: "15px",
-                marginRight: "15px",
-              }}
-            />
-            <p
-              style={{
-                fontFamily: "din-round, sans-serif",
-                color: "black",
-                fontSize: "1.5rem",
-                textAlign: "center",
-                marginBottom: "0px !important",
-              }}
-            >
-              Arabic Fundamentals 1 Reading
-            </p>
-          </div>
+          </Link>
           <div className="course-card">
             <div
               style={{
@@ -146,15 +154,14 @@ export default function Dashboard() {
                 flexDirection: "row",
                 // alignItems: "center",
                 justifyContent: "center",
-                marginTop: "1rem",
               }}
             >
-              <img src={info} style={{ height: "20px" }} />
+              <img src={info} style={{ height: "15px" }} />
               <p
                 style={{
                   fontFamily: "din-round, sans-serif",
                   color: "#8edaff",
-                  fontSize: "1rem",
+                  fontSize: "0.75rem",
                   textAlign: "center",
                   marginBottom: "0px !important",
                   marginLeft: "10px",
@@ -184,6 +191,7 @@ export default function Dashboard() {
             </p>
           </div>
         </div>
+
         {/* <AllLevelElement
 					badge={level}
 					title="Test all levels"

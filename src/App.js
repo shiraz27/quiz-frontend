@@ -5,6 +5,7 @@ import Landing from './components/Landing';
 import Dashboard from './components/Dashboard';
 import Quiz from './components/Quiz';
 import Profile from './components/Profile';
+import Course from './components/course';
 
 function App() {
 	return (
@@ -16,9 +17,9 @@ function App() {
 				<Route path="/dashboard">
 					<Dashboard />
 				</Route>
-				<Route path="/">
+				{/* <Route path="/">
 					<Landing />
-				</Route>
+				</Route> */}
 				<Route path="/me">
 					<Profile />
 				</Route>
@@ -31,9 +32,10 @@ function App() {
 				{/* <Route path="/resetpassword">
 					<Profile />
 				</Route> */}
-				{/* <Route path="/course:id">
-					<Dashboard />
-				</Route> */}
+				{/* <Route path="/course:id"> */}
+				<Route path="/course">
+					<Course />
+				</Route>
 				{/* <Route path="/string/string:name">
 					<Dashboard />
 				</Route> */}
