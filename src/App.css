@@ -215,7 +215,7 @@ a {
   height: 50px;
   width: 50px;
   background-color: #eed3ff;
-  border: solid #dfaeff;
+  border: solid #e8c9ff;
   border-radius: 50%;
   display: inline-block;
   border-width: 2px 2px 4px;
@@ -243,7 +243,7 @@ input.form-control::placeholder {
   border-width: 0px 0px 10px 10px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   margin-top: 3%;
   flex-direction: column;
   /* margin-left: 10%; */
@@ -343,4 +343,144 @@ p {
 
 .page-title {
   margin-bottom: 1rem !important;
+}
+
+.lesson-card {
+  /* height: 100px; */
+  width: 290px;
+  background-color: #f3fbff;
+  border-radius: 35px;
+  display: inline-block;
+  border: solid #d2f0ff;
+  border-width: 0px 0px 10px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3%;
+  flex-direction: column;
+  /* margin-left: 10%; */
+  padding: 15px;
+  margin-left: 5px;
+  margin-right: 5px;
+  min-width: -webkit-fill-available;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.level-card {
+  /* height: 100px; */
+  width: 290px;
+  background-color: #f6e6ff;
+  /* border: solid #e8c9ff; */
+  border-radius: 35px;
+  display: inline-block;
+  border-width: 0px 0px 10px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3%;
+  flex-direction: column;
+  /* margin-left: 10%; */
+  padding: 15px;
+  margin-left: 5px;
+  margin-right: 5px;
+  min-width: -webkit-fill-available;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-weight: bold;
+  color: #605f68;
+  font-family: din-round, sans-serif;
+  font-size: 1rem;
+  text-align: center !important;
+  letter-spacing: 2px;
+}
+.card {
+  position: static !important;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: transparent !important;
+  background-clip: border-box;
+  border: 0px solid transparent !important;
+  border-radius: 0.25rem;
+}
+
+.card-header {
+  padding: 0px !important;
+  margin-bottom: 0;
+  background-color: transparent !important;
+  border-bottom: 0px solid transparent !important;
+}
+/* .custom-timeline {
+  margin-left: 20px;
+}
+
+.custom-timeline .rs-timeline-item-custom-dot .rs-icon {
+  position: absolute;
+  background: #fff;
+  top: 0;
+  left: -2px;
+  border: 2px solid #ddd;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 18px;
+  padding-top: 9px;
+  color: #999;
+  margin-left: -13px;
+}
+
+.custom-timeline .rs-timeline-item-content {
+  margin-left: 24px;
+} */
+
+.rs-timeline-item:not(:last-child) .rs-timeline-item-content {
+  padding-bottom: 18px;
+  font-family: din-round, sans-serif;
+  color: #605e67;
+  font-size: 1rem;
+}
+.rs-timeline-item .rs-timeline-item-content {
+  padding-bottom: 18px;
+  font-family: din-round, sans-serif;
+  color: #d3f0fe;
+  font-size: 1rem;
+  display: grid;
+  flex-direction: column;
+}
+.rs-timeline-item-last .rs-timeline-item-dot::before {
+  background-color: #d3f0fe !important;
+}
+.card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.25rem;
+  width: 290px;
+}
+.rs-timeline-item:not(:last-child) .rs-timeline-item-content {
+  padding-bottom: 18px;
+  display: grid;
+  flex-direction: column;
+}
+.rs-timeline-item-tail {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: #f7f7f7 !important;
+}
+.rs-timeline-item-dot::before {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: #f7f7f7 !important;
+    border-radius: 50%;
+}
+.rc-progress-line-trail{
+  stroke: #D0D6DD;
+  stroke-width: 0.5px;
 }
