@@ -21,6 +21,35 @@ function NavbarTop() {
       window.removeEventListener("resize", handleResize);
     };
   });
+  function Example() {
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    return (
+      <>
+        <Button variant="primary" onClick={handleShow}>
+          Launch demo modal
+        </Button>
+
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Modal heading</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="primary" onClick={handleClose}>
+              Save Changes
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </>
+    );
+  }
   return (
     <div style={{ boxShadow: "0 2px 4px 0 rgba(0,0,0,.05)" }}>
       <div style={styles.navBox}>
@@ -35,9 +64,12 @@ function NavbarTop() {
         >
           <Link to="/dashboard">
             <img src={logo} style={{ height: "10vmin" }} />
-            <span style={{ fontFamily: "din-round, sans-serif" }}>
-              ArabicaLearn
-            </span>
+            {/* <span 
+            className="logo-banner"
+            // style={{ fontFamily: "din-round, sans-serif", color: '#605f68' }}
+            >
+              ARABICA LEARN
+            </span> */}
           </Link>
         </span>
         {windowWidth >= 1000 ? (
@@ -55,7 +87,10 @@ function NavbarTop() {
             </Form.Group>
           </Form>
         ) : (
-          <Search />
+          <>
+            <Search />
+            {/* <Example/> */}
+          </>
         )}
         <Dropdown style={{ marginRight: "15%" }}>
           <Dropdown.Toggle
@@ -66,7 +101,7 @@ function NavbarTop() {
             <img src={profile} style={styles.navElement} />
           </Dropdown.Toggle>
           <Dropdown.Menu>
-            <Dropdown.Item href="/me">My Account</Dropdown.Item>
+            <Dropdown.Item href="/me">MY ACCOUNT</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
       </div>

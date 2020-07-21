@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import './App.css';
 import Landing from './components/Landing';
 import Dashboard from './components/Dashboard';
-import Quiz from './components/Quiz';
+import Quiz from './components/Auiz';
 import Profile from './components/Profile';
 import Course from './components/course';
 
@@ -17,9 +17,9 @@ function App() {
 				<Route path="/dashboard">
 					<Dashboard />
 				</Route>
-				{/* <Route path="/">
+				<Route exact path="/">
 					<Landing />
-				</Route> */}
+				</Route>
 				<Route path="/me">
 					<Profile />
 				</Route>

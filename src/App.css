@@ -2,7 +2,15 @@
   font-family: "din-round";
   src: local("din"), url(./fonts/din.otf) format("opentype");
 }
-
+@font-face {
+  font-family: "tajawal";
+  src: local("tajawal"), url(./fonts/tajawal.otf) format("opentype");
+}
+@font-face {
+  font-family: "din-round-light";
+  src: local("din-round-light"),
+    url(./fonts/din-round-light.otf) format("opentype");
+}
 /*______________________Landing component______________________*/
 /*______________________Dashboard component______________________*/
 /* ______________________Quiz component______________________*/
@@ -66,34 +74,36 @@
 .modal-footer {
   border-top: 1px solid transparent !important;
 } */
-.modal-header {
+/* .modal-header {
   border-bottom: 4px dashed #8766fa !important;
   align-items: center !important;
   width: -webkit-fill-available;
   justify-content: center !important;
   padding: O !important;
   background: aliceblue;
-}
+} */
 a:hover {
   /* color: transparent !important; */
   background-color: transparent !important;
-  color: black !important;
+  color: #d8b6ea !important;
   text-decoration: none !important;
+  font-weight: bold !important;
 }
 a {
-  color: black !important;
+  color: #d8b6ea !important;
   text-decoration: none;
   background-color: transparent;
+  font-weight: bold !important;
 }
-.modal-content {
+/* .modal-content {
   align-items: center;
 }
 .modal-body {
   width: -webkit-fill-available;
   align-items: center;
   justify-content: center;
-  /* display: contents; */
-}
+  /* display: contents; 
+} */
 .lesson-element:hover {
   background: #f0faff;
   /* width: 40vw; */
@@ -109,11 +119,11 @@ a {
   width: 15rem;
   height: 100%;
   margin: 1rem;
-  padding: 1rem;
-  border-radius: 16px;
+  padding: 0.5rem;
+  border-radius: 32px;
   border-width: 2px 2px 10px;
   border-style: solid;
-  border-color: rgb(217, 224, 230);
+  border-color: #d4f0fd;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -122,18 +132,9 @@ a {
   background: white;
 }
 .answer-element:hover {
-  background: #f0faff;
-  width: 15rem;
-  height: 100%;
-  border-radius: 16px;
-  border-width: 2px 2px 10px;
-  border-style: solid;
-  border-color: rgb(210, 241, 255);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: #f6e6ff;
+  border-color: #f1dfff;
+  color: white;
 }
 .lesson-element {
   display: flex;
@@ -181,8 +182,28 @@ a {
   margin: 5px !important;
   /* width: 19rem !important; */
   border: none !important;
+  width: 250px !important;
 }
-
+.profile-form {
+  background: #f7f7f7 !important;
+  border: 2px solid #e5e5e5 !important;
+  color: #4b4b4b !important;
+  border-radius: 16px !important;
+  min-height: 48px;
+  text-align: left;
+  min-width: 300px !important;
+  width: -webkit-fill-available !important;
+}
+.profile-form-mobile {
+    background: #f7f7f7 !important;
+    border: 2px solid #e5e5e5 !important;
+    color: #4b4b4b !important;
+    border-radius: 16px !important;
+    min-height: 48px;
+    text-align: left;
+    min-width: 150px !important;
+    width: 150px !important;
+}
 .form-group {
   margin-bottom: 0px !important;
   display: flex;
@@ -217,7 +238,6 @@ a {
   background-color: #eed3ff;
   border: solid #e8c9ff;
   border-radius: 50%;
-  display: inline-block;
   border-width: 2px 2px 4px;
   display: flex;
   align-items: center;
@@ -238,9 +258,8 @@ input.form-control::placeholder {
   width: 270px;
   background-color: #f3fbff;
   border-radius: 12%;
-  display: inline-block;
-  border: solid #d2f0ff;
-  border-width: 0px 0px 10px 10px;
+  border: solid #e8f7ff;
+  border-width: 0px 0px 10px 0px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -276,16 +295,21 @@ input.form-control::placeholder {
 .dropdown-menu {
   text-align: center !important;
   font-family: din-round !important;
-  border-color: transparent !important;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px 0px;
-  background: white !important;
+  /* box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px 0px; */
+  background-color: #faf2ff !important;
+  border: solid #f4e4ff !important;
+  border-radius: 1.25rem !important;
+  border-width: 0px 0px 5px 0px !important;
+  letter-spacing: 2px;
+  color: #d8b6ea !important;
+  font-weight: bold !important;
 }
-
+/* 
 .modal-content {
-  /* width: fit-content !important; */
+  /* width: fit-content !important; 
   background: transparent !important;
   border-color: transparent !important;
-}
+} */
 
 /* p {
   margin-bottom: 0rem !important;
@@ -303,8 +327,7 @@ hr {
   width: -webkit-fill-available;
   background-color: #f3fbff;
   border-radius: 35px;
-  display: inline-block;
-  border: solid #d2f0ff;
+  border: solid #e8f7ff;
   border-width: 0px 0px 10px 0px;
   display: flex;
   align-items: center;
@@ -350,10 +373,8 @@ p {
   width: 290px;
   background-color: #f3fbff;
   border-radius: 35px;
-  display: inline-block;
-  border: solid #d2f0ff;
+  border: solid #e8f7ff;
   border-width: 0px 0px 10px 0px;
-  display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 3%;
@@ -371,10 +392,9 @@ p {
 .level-card {
   /* height: 100px; */
   width: 290px;
-  background-color: #f6e6ff;
-  /* border: solid #e8c9ff; */
+  background-color: #faf2ff;
+  border: solid #f4e4ff;
   border-radius: 35px;
-  display: inline-block;
   border-width: 0px 0px 10px 0px;
   display: flex;
   align-items: center;
@@ -386,18 +406,17 @@ p {
   margin-left: 5px;
   margin-right: 5px;
   min-width: -webkit-fill-available;
-  display: flex;
   flex-direction: row;
   align-items: center;
   font-weight: bold;
-  color: #605f68;
+  color: #d8b6ea;
   font-family: din-round, sans-serif;
   font-size: 1rem;
   text-align: center !important;
   letter-spacing: 2px;
 }
 .card {
-  position: static !important;
+  position: relative !important;
   display: flex;
   flex-direction: column;
   min-width: 0;
@@ -458,7 +477,13 @@ p {
   flex: 1 1 auto;
   min-height: 1px;
   padding: 1.25rem;
-  width: 290px;
+  width: 290px !important;
+  background-color: #f3fbff;
+  border-radius: 35px;
+  border: solid #e8f7ff;
+  border-width: 0px 0px 10px 0px;
+  margin-top: 5px;
+  margin-left: 5px;
 }
 .rs-timeline-item:not(:last-child) .rs-timeline-item-content {
   padding-bottom: 18px;
@@ -470,17 +495,102 @@ p {
   top: 0;
   bottom: 0;
   width: 2px;
-  background-color: #f7f7f7 !important;
+  background-color: #d3f0fe !important;
 }
 .rs-timeline-item-dot::before {
-    content: '';
-    display: block;
-    width: 10px;
-    height: 10px;
-    background-color: #f7f7f7 !important;
-    border-radius: 50%;
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-color: #d3f0fe !important;
+  border-radius: 50%;
 }
-.rc-progress-line-trail{
-  stroke: #D0D6DD;
+.rs-timeline-item-content {
+  padding-bottom: 18px;
+  display: flex !important;
+  flex-direction: row !important;
+}
+.rc-progress-line-trail {
+  stroke: #d0d6dd;
   stroke-width: 0.5px;
+}
+
+.quiz-card {
+  /* height: 300px;
+  width: 270px; */
+  width: -webkit-fill-available;
+  margin-left: 15%;
+  margin-right: 15%;
+  background-color: #f3fbff;
+  border-radius: 23px;
+  border: solid #e8f7ff;
+  border-width: 0px 0px 10px 0px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 3%;
+  flex-direction: column;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.vodio {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #efd4ff;
+  border: solid #e9cafe;
+  padding: 10px;
+  margin: 1rem;
+  bottom: 0px;
+  height: -moz-fit-content;
+  height: 50px;
+  width: 100px;
+  border-width: 0px 0px 4px 0px;
+  border-radius: 16px;
+  border-style: solid;
+}
+/* .vodio{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #eed3ff;
+  border: solid #e8c9ff;  
+  padding: 10px;
+  margin: 1rem;
+  bottom: 0px;
+  height: fit-content;
+  width: 100px;
+  border-width: 2px 2px 10px;
+  border-radius: 16px;
+  border-style: solid;
+} */
+.logo-banner {
+  font-family: din-round, sans-serif;
+  color: #d8b6ea;
+  letter-spacing: 2px;
+  background: #faf2ff;
+  font-weight: bold;
+  border: 0px solid;
+  border-radius: 8px;
+  padding: 4px;
+}
+.course-text{
+  font-family: din-round, sans-serif;
+  color: rgb(72, 80, 88);
+  font-size: 1.3rem;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.profile-text{
+  font-family: din-round, sans-serif;
+  color: rgb(72, 80, 88);
+  font-size: 15px;
+  text-align: center;
+  font-weight: bold;
+  margin-right: 16px;
 }

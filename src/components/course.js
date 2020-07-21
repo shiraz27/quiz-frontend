@@ -13,6 +13,7 @@ import NavbarTop from "./NavbarTop";
 
 //resources
 import trophydisabled from "../img/trophydisabled.png";
+import trophy from "../img/trophy.png";
 import energy from "../img/energy.png";
 import arrowdown from "../img/arrowdown.png";
 import bag from "../img/002-money bag.svg";
@@ -228,6 +229,7 @@ export default function Course() {
                   <Card.Header>
                     <Accordion.Toggle as={Card.Header} eventKey="0">
                       <div className="lesson-card">
+                        <img src={trophy} style={styles.trophy} />
                         <p style={styles.lessonTitle}>{lesson.title}</p>
                         <img
                           src={arrowdown}
@@ -240,27 +242,38 @@ export default function Course() {
                     <Card.Body>
                       <Timeline>
                         <Timeline.Item>
+                          <img
+                            src={energy}
+                            style={{
+                              height: "15px",
+                              marginTop: "5px",
+                              marginRight: "10px",
+                            }}
+                          />
                           Lesson name read and write everything in Arabic
-                          <img
-                            src={energy}
-                            style={{ height: "10px", marginTop: "5px" }}
-                          />
                         </Timeline.Item>
                         <Timeline.Item>
-                          Lesson name
                           <img
                             src={energy}
-                            style={{ height: "10px", marginTop: "5px" }}
+                            style={{
+                              height: "15px",
+                              marginTop: "5px",
+                              marginRight: "10px",
+                            }}
                           />
+                          Lesson name
                         </Timeline.Item>
                         <Timeline.Item>
-                          Lesson name
                           <img
                             src={energy}
-                            style={{ height: "10px", marginTop: "5px" }}
+                            style={{
+                              height: "15px",
+                              marginTop: "5px",
+                              marginRight: "10px",
+                            }}
                           />
+                          <p style={{ color: "#605e67" }}>Lesson name</p>
                         </Timeline.Item>
-                        <img src={trophydisabled} style={styles.trophy} />
                       </Timeline>
                     </Card.Body>
                   </Accordion.Collapse>
@@ -295,6 +308,7 @@ export default function Course() {
                   <Card.Header>
                     <Accordion.Toggle as={Card.Header} eventKey="0">
                       <div className="lesson-card">
+                      <img src={trophydisabled} style={styles.trophy} />
                         <p style={styles.lessonTitle}>{lesson.title}</p>
                         <img
                           src={arrowdown}
@@ -307,41 +321,60 @@ export default function Course() {
                     <Card.Body>
                       <Timeline>
                         <Timeline.Item>
+                          <img
+                            src={energy}
+                            style={{
+                              height: "15px",
+                              marginTop: "5px",
+                              marginRight: "10px",
+                            }}
+                          />
                           Lesson name read and write everything in Arabic
-                          <img
-                            src={energy}
-                            style={{ height: "10px", marginTop: "5px" }}
-                          />
                         </Timeline.Item>
                         <Timeline.Item>
+                          <img
+                            src={energy}
+                            style={{
+                              height: "15px",
+                              marginTop: "5px",
+                              marginRight: "10px",
+                            }}
+                          />
                           Lesson name
-                          <img
-                            src={energy}
-                            style={{ height: "10px", marginTop: "5px" }}
-                          />
                         </Timeline.Item>
                         <Timeline.Item>
+                          <img
+                            src={energy}
+                            style={{
+                              height: "15px",
+                              marginTop: "5px",
+                              marginRight: "10px",
+                            }}
+                          />
                           Lesson name
-                          <img
-                            src={energy}
-                            style={{ height: "10px", marginTop: "5px" }}
-                          />
                         </Timeline.Item>
                         <Timeline.Item>
-                          Lesson name read and write everything in Arabic
                           <img
                             src={energy}
-                            style={{ height: "10px", marginTop: "5px" }}
+                            style={{
+                              height: "15px",
+                              marginTop: "5px",
+                              marginRight: "10px",
+                            }}
                           />
-                        </Timeline.Item>
-                        <Timeline.Item>
                           Lesson name
+                        </Timeline.Item>
+                        <Timeline.Item>
                           <img
                             src={energy}
-                            style={{ height: "10px", marginTop: "5px" }}
+                            style={{
+                              height: "15px",
+                              marginTop: "5px",
+                              marginRight: "10px",
+                            }}
                           />
+                          <p style={{ color: "#605e67" }}>Lesson name</p>
                         </Timeline.Item>
-                        <img src={trophydisabled} style={styles.trophy} />
                       </Timeline>
                     </Card.Body>
                   </Accordion.Collapse>
@@ -350,6 +383,108 @@ export default function Course() {
             </>
           ))}
         </div>
+        <br/>
+        <div
+          style={{
+            borderBottom: "5px dotted rgb(239, 212, 255)",
+            borderBottomWidth: "5px",
+            borderBottomStyle: "dotted",
+            borderBottomColor: "rgb(239, 212, 255)",
+            marginLeft: "25%",
+            marginRight: "25%",
+            marginTop: "3% !important",
+            width: "-webkit-fill-available",
+          }}
+        />
+
+        <div style={styles.container}>
+          <br />
+          <div className="level-card">
+            <p>LEVEL 3</p>
+          </div>
+          {lessoList.map((lesson, i) => (
+            <>
+              <Accordion defaultActiveKey="1">
+                <Card>
+                  <Card.Header>
+                    <Accordion.Toggle as={Card.Header} eventKey="0">
+                      <div className="lesson-card">
+                      <img src={trophydisabled} style={styles.trophy} />
+                        <p style={styles.lessonTitle}>{lesson.title}</p>
+                        <img
+                          src={arrowdown}
+                          style={{ height: "10px", margin: "5px" }}
+                        />
+                      </div>
+                    </Accordion.Toggle>
+                  </Card.Header>
+                  <Accordion.Collapse eventKey="0">
+                    <Card.Body>
+                      <Timeline>
+                        <Timeline.Item>
+                          <img
+                            src={energy}
+                            style={{
+                              height: "15px",
+                              marginTop: "5px",
+                              marginRight: "10px",
+                            }}
+                          />
+                          Lesson name read and write everything in Arabic
+                        </Timeline.Item>
+                        <Timeline.Item>
+                          <img
+                            src={energy}
+                            style={{
+                              height: "15px",
+                              marginTop: "5px",
+                              marginRight: "10px",
+                            }}
+                          />
+                          Lesson name
+                        </Timeline.Item>
+                        <Timeline.Item>
+                          <img
+                            src={energy}
+                            style={{
+                              height: "15px",
+                              marginTop: "5px",
+                              marginRight: "10px",
+                            }}
+                          />
+                          Lesson name
+                        </Timeline.Item>
+                        <Timeline.Item>
+                          <img
+                            src={energy}
+                            style={{
+                              height: "15px",
+                              marginTop: "5px",
+                              marginRight: "10px",
+                            }}
+                          />
+                          Lesson name
+                        </Timeline.Item>
+                        <Timeline.Item>
+                          <img
+                            src={energy}
+                            style={{
+                              height: "15px",
+                              marginTop: "5px",
+                              marginRight: "10px",
+                            }}
+                          />
+                          <p style={{ color: "#605e67" }}>Lesson name</p>
+                        </Timeline.Item>
+                      </Timeline>
+                    </Card.Body>
+                  </Accordion.Collapse>
+                </Card>
+              </Accordion>
+            </>
+          ))}
+        </div>
+     
       </body>
     </div>
   );
@@ -385,11 +520,11 @@ const styles = {
     color: "#605F68",
     fontFamily: "din-round, sans-serif",
     margin: "0",
-    textAlign: "left",
+    textAlign: "center",
     fontSize: "1rem",
   },
   trophy: {
-    height: "40px",
+    height: "30px",
     marginTop: "5px",
   },
 };

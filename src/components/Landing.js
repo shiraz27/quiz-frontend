@@ -15,6 +15,9 @@ function Landing() {
 						<Link to="/dashboard">Dashboard</Link>
 					</li>
 					<li>
+						<Link to="/course">Course</Link>
+					</li>
+					<li>
 						<Link to="/quiz">Quiz</Link>
 					</li>
 				</ul>

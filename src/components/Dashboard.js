@@ -26,7 +26,7 @@ export default function Dashboard() {
   return (
     <div>
       <NavbarTop />
-      <body style={styles.container}>
+      <div style={styles.container}>
         <div style={{ width: "-webkit-fill-available" }}>
           <p
             style={{
@@ -74,9 +74,11 @@ export default function Dashboard() {
                     textAlign: "center",
                     marginBottom: "0px !important",
                     marginLeft: "10px",
+                    fontWeight: "bold",
+                    letterSpacing: "1px",
                   }}
                 >
-                  By ArabicaLearn
+                  By Arabica Learn
                 </p>
               </div>
               <img
@@ -88,13 +90,14 @@ export default function Dashboard() {
                 }}
               />
               <p
-                style={{
-                  fontFamily: "din-round, sans-serif",
-                  color: "black",
-                  fontSize: "1.5rem",
-                  textAlign: "center",
-                  marginBottom: "0px !important",
-                }}
+                // style={{
+                //   fontFamily: "din-round, sans-serif",
+                //   color: "#605f68",
+                //   fontSize: "1.5rem",
+                //   textAlign: "center",
+                //   marginBottom: "0px !important",
+                // }}
+                className='course-text'
               >
                 Arabic Fundamentals 1 Reading
               </p>
@@ -117,6 +120,8 @@ export default function Dashboard() {
                   textAlign: "center",
                   marginBottom: "0px !important",
                   marginLeft: "10px",
+                  fontWeight: "bold",
+                  letterSpacing: "1px",
                 }}
               >
                 By University of Um Al Qura
@@ -131,19 +136,20 @@ export default function Dashboard() {
               }}
             />
             <p
-              style={{
-                fontFamily: "din-round, sans-serif",
-                color: "black",
-                fontSize: "1.5rem",
-                textAlign: "center",
-                marginBottom: "0px !important",
-              }}
+              // style={{
+              //   fontFamily: "din-round, sans-serif",
+              //   color: "#605f68",
+              //   fontSize: "1.5rem",
+              //   textAlign: "center",
+              //   marginBottom: "0px !important",
+              // }}
+              className='course-text'
             >
               Arabic Fundamentals 2 Vocabulary
             </p>
           </div>
         </div>
-      </body>
+      </div>
     </div>
   );
 }
