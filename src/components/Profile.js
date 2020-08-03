@@ -25,12 +25,12 @@ export default function Profile() {
     };
   });
 
-  function showname () {
-    var name = document.getElementById('img'); 
-    alert('Selected file: ' + name.item(0).name);
-    alert('Selected file: ' + name.item(0).size);
-    alert('Selected file: ' + name.item(0).type);
-  };
+  function showname() {
+    var name = document.getElementById("img");
+    // alert("Selected file: " + name.item(0).name);
+    // alert("Selected file: " + name.item(0).size);
+    // alert("Selected file: " + name.item(0).type);
+  }
 
   return (
     <div>
@@ -136,20 +136,39 @@ export default function Profile() {
               marginBottom: "16px",
             }}
           >
-            <p className="profile-text">Profile picture</p>
-            <form>
+            <button className="save" onClick={() => {}}>
+              SAVE
+            </button>
+            {/* <p className="profile-text">Profile picture</p>
+            <Form>
+              <Form.Group>
+                {/* <Form.File
+                  id="exampleFormControlFile1"
+                  label="Example file input"
+                /> 
+              </Form.Group>
+            </Form> */}
+            {/* <Form>
               <input
                 type="file"
                 name="uploadfile"
                 id="img"
-                style={{display:'none'}}
+                style={{ display: "none" }}
                 onchange={showname()}
-                ref="img"
+                // ref="img"
               />
-              <label for="img">Choose Image</label>
+              <label
+                className={
+                  windowWidth >= 1000 ? "profile-form" : "profile-form-mobile"
+                }
+                for="img"
+                placeholder="Password"
+              >
+                ...
+              </label>
               {/* <input type="file" accept="image/*" id="files"/> */}
-              {/* <label for="files">Select file</label> */}
-            </form>
+            {/* <label for="files">Select file</label>
+            </Form> */}
           </div>
         </div>
       </div>

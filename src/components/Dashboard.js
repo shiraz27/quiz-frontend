@@ -69,7 +69,7 @@ export default function Dashboard() {
                 <p
                   style={{
                     fontFamily: "din-round, sans-serif",
-                    color: "#8edaff",
+                    color: "#b0e3ff",
                     fontSize: "0.75rem",
                     textAlign: "center",
                     marginBottom: "0px !important",
@@ -115,7 +115,7 @@ export default function Dashboard() {
               <p
                 style={{
                   fontFamily: "din-round, sans-serif",
-                  color: "#8edaff",
+                  color: "#b0e3ff",
                   fontSize: "0.75rem",
                   textAlign: "center",
                   marginBottom: "0px !important",

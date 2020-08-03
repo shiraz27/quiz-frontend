@@ -12,10 +12,10 @@ import "rsuite/dist/styles/rsuite-default.css";
 import NavbarTop from "./NavbarTop";
 
 //resources
-import trophydisabled from "../img/trophydisabled.png";
-import trophy from "../img/trophy.png";
+import trophydisabled from "../img/trophydisabled.svg";
+import trophy from "../img/trophy.svg";
 import energy from "../img/energy.png";
-import arrowdown from "../img/arrowdown.png";
+import arrowdown from "../img/arrowdown.svg";
 import bag from "../img/002-money bag.svg";
 import torch from "../img/036-torch.svg";
 import level from "../img/042-fire.svg";
@@ -102,7 +102,7 @@ export default function Course() {
               <p
                 style={{
                   fontFamily: "din-round, sans-serif",
-                  color: "#8edaff",
+                  color: "rgb(255 222 85)",
                   fontSize: "2rem",
                   textAlign: "center",
                   marginBottom: "0rem !important",
@@ -115,7 +115,7 @@ export default function Course() {
             <p
               style={{
                 fontFamily: "din-round, sans-serif",
-                color: "#8edaff",
+                color: "rgb(255 222 85)",
                 fontSize: "1rem",
                 textAlign: "center",
                 marginBottom: "0px !important",
@@ -140,7 +140,7 @@ export default function Course() {
             <p
               style={{
                 fontFamily: "din-round, sans-serif",
-                color: "#8edaff",
+                color: "rgb(255 222 85)",
                 fontSize: "1rem",
                 textAlign: "center",
                 marginBottom: "0px !important",
@@ -164,7 +164,7 @@ export default function Course() {
               <p
                 style={{
                   fontFamily: "din-round, sans-serif",
-                  color: "#8edaff",
+                  color: "rgb(255 222 85)",
                   fontSize: "2rem",
                   textAlign: "center",
                   marginBottom: "0rem !important",
@@ -178,7 +178,7 @@ export default function Course() {
             <p
               style={{
                 fontFamily: "din-round, sans-serif",
-                color: "#8edaff",
+                color: "rgb(255 222 85)",
                 fontSize: "1rem",
                 textAlign: "center",
                 marginBottom: "0px !important",
@@ -195,7 +195,7 @@ export default function Course() {
             <span
               style={{
                 fontFamily: "din-round, sans-serif",
-                color: "#8edaff",
+                color: "rgb(255 222 85)",
                 fontSize: "1rem",
                 textAlign: "center",
                 marginBottom: "0px !important",
@@ -213,12 +213,12 @@ export default function Course() {
                 alignItems: "center",
               }}
             >
-              <Line percent={progress} strokeWidth="4" strokeColor="#8edaff" />
+              <Line percent={progress} strokeWidth="4" strokeColor="rgb(255 222 85)" />
             </div>
           </div>
         </div>
         <div style={styles.container}>
-          <br />
+          <div style={{ marginTop: "3%" }} />
           <div className="level-card">
             <p>LEVEL 1</p>
           </div>
@@ -245,36 +245,45 @@ export default function Course() {
                           <img
                             src={energy}
                             style={{
-                              height: "15px",
-                              marginTop: "5px",
+                              height: "1rem",
                               marginRight: "10px",
+                              marginBottom: "5px",
                             }}
                           />
-                          Lesson name read and write everything in Arabic
+                          <Link to="/quiz/maths/1/1" className='upper-case'>
+                            Lesson name read and write everything in Arabic
+                          </Link>
+                          <br/>
                         </Timeline.Item>
                         <Timeline.Item>
                           <img
                             src={energy}
                             style={{
-                              height: "15px",
-                              marginTop: "5px",
+                              height: "1rem",
                               marginRight: "10px",
+                              marginBottom: "5px",
+
                             }}
                           />
-                          Lesson name
-                        </Timeline.Item>
-                        <Timeline.Item>
+                          <Link to="/quiz/maths/1/1" className='upper-case'>Lesson name</Link>
+                          <br/>
+                        </Timeline.Item> 
+                         <Timeline.Item>
                           <img
                             src={energy}
                             style={{
-                              height: "15px",
-                              marginTop: "5px",
+                              height: "1rem",
                               marginRight: "10px",
+                              marginBottom: "5px",
+
                             }}
                           />
-                          <p style={{ color: "#605e67" }}>Lesson name</p>
-                        </Timeline.Item>
-                      </Timeline>
+                          <Link to="/quiz/maths/1/1" className='upper-case'>
+                            <p style={{ color: "#605e67" }}>Lesson name</p>
+                          </Link>
+                          <br/>
+                         </Timeline.Item> 
+                       </Timeline> 
                     </Card.Body>
                   </Accordion.Collapse>
                 </Card>
@@ -282,22 +291,8 @@ export default function Course() {
             </>
           ))}
         </div>
-        <br />
-        <div
-          style={{
-            borderBottom: "5px dotted rgb(239, 212, 255)",
-            borderBottomWidth: "5px",
-            borderBottomStyle: "dotted",
-            borderBottomColor: "rgb(239, 212, 255)",
-            marginLeft: "25%",
-            marginRight: "25%",
-            marginTop: "3% !important",
-            width: "-webkit-fill-available",
-          }}
-        />
-
         <div style={styles.container}>
-          <br />
+          <div style={{ marginTop: "3%" }} />
           <div className="level-card">
             <p>LEVEL 2</p>
           </div>
@@ -308,7 +303,7 @@ export default function Course() {
                   <Card.Header>
                     <Accordion.Toggle as={Card.Header} eventKey="0">
                       <div className="lesson-card">
-                      <img src={trophydisabled} style={styles.trophy} />
+                        <img src={trophydisabled} style={styles.trophy} />
                         <p style={styles.lessonTitle}>{lesson.title}</p>
                         <img
                           src={arrowdown}
@@ -324,58 +319,45 @@ export default function Course() {
                           <img
                             src={energy}
                             style={{
-                              height: "15px",
-                              marginTop: "5px",
+                              height: "1rem",
                               marginRight: "10px",
+                              marginBottom: "5px",
                             }}
                           />
-                          Lesson name read and write everything in Arabic
+                          <Link to="/quiz/maths/1/1" className='upper-case'>
+                            Lesson name read and write everything in Arabic
+                          </Link>
+                          <br/>
                         </Timeline.Item>
                         <Timeline.Item>
                           <img
                             src={energy}
                             style={{
-                              height: "15px",
-                              marginTop: "5px",
+                              height: "1rem",
                               marginRight: "10px",
+                              marginBottom: "5px",
+
                             }}
                           />
-                          Lesson name
-                        </Timeline.Item>
-                        <Timeline.Item>
+                          <Link to="/quiz/maths/1/1" className='upper-case'>Lesson name</Link>
+                          <br/>
+                        </Timeline.Item> 
+                         <Timeline.Item>
                           <img
                             src={energy}
                             style={{
-                              height: "15px",
-                              marginTop: "5px",
+                              height: "1rem",
                               marginRight: "10px",
+                              marginBottom: "5px",
+
                             }}
                           />
-                          Lesson name
-                        </Timeline.Item>
-                        <Timeline.Item>
-                          <img
-                            src={energy}
-                            style={{
-                              height: "15px",
-                              marginTop: "5px",
-                              marginRight: "10px",
-                            }}
-                          />
-                          Lesson name
-                        </Timeline.Item>
-                        <Timeline.Item>
-                          <img
-                            src={energy}
-                            style={{
-                              height: "15px",
-                              marginTop: "5px",
-                              marginRight: "10px",
-                            }}
-                          />
-                          <p style={{ color: "#605e67" }}>Lesson name</p>
-                        </Timeline.Item>
-                      </Timeline>
+                          <Link to="/quiz/maths/1/1" className='upper-case'>
+                            <p style={{ color: "#605e67" }}>Lesson name</p>
+                          </Link>
+                          <br/>
+                         </Timeline.Item> 
+                       </Timeline> 
                     </Card.Body>
                   </Accordion.Collapse>
                 </Card>
@@ -383,22 +365,8 @@ export default function Course() {
             </>
           ))}
         </div>
-        <br/>
-        <div
-          style={{
-            borderBottom: "5px dotted rgb(239, 212, 255)",
-            borderBottomWidth: "5px",
-            borderBottomStyle: "dotted",
-            borderBottomColor: "rgb(239, 212, 255)",
-            marginLeft: "25%",
-            marginRight: "25%",
-            marginTop: "3% !important",
-            width: "-webkit-fill-available",
-          }}
-        />
-
         <div style={styles.container}>
-          <br />
+          <div style={{ marginTop: "3%" }} />
           <div className="level-card">
             <p>LEVEL 3</p>
           </div>
@@ -409,7 +377,7 @@ export default function Course() {
                   <Card.Header>
                     <Accordion.Toggle as={Card.Header} eventKey="0">
                       <div className="lesson-card">
-                      <img src={trophydisabled} style={styles.trophy} />
+                        <img src={trophydisabled} style={styles.trophy} />
                         <p style={styles.lessonTitle}>{lesson.title}</p>
                         <img
                           src={arrowdown}
@@ -425,58 +393,45 @@ export default function Course() {
                           <img
                             src={energy}
                             style={{
-                              height: "15px",
-                              marginTop: "5px",
+                              height: "1rem",
                               marginRight: "10px",
+                              marginBottom: "5px",
                             }}
                           />
-                          Lesson name read and write everything in Arabic
+                          <Link to="/quiz/maths/1/1" className='upper-case'>
+                            Lesson name read and write everything in Arabic
+                          </Link>
+                          <br/>
                         </Timeline.Item>
                         <Timeline.Item>
                           <img
                             src={energy}
                             style={{
-                              height: "15px",
-                              marginTop: "5px",
+                              height: "1rem",
                               marginRight: "10px",
+                              marginBottom: "5px",
+
                             }}
                           />
-                          Lesson name
-                        </Timeline.Item>
-                        <Timeline.Item>
+                          <Link to="/quiz/maths/1/1" className='upper-case'>Lesson name</Link>
+                          <br/>
+                        </Timeline.Item> 
+                         <Timeline.Item>
                           <img
                             src={energy}
                             style={{
-                              height: "15px",
-                              marginTop: "5px",
+                              height: "1rem",
                               marginRight: "10px",
+                              marginBottom: "5px",
+
                             }}
                           />
-                          Lesson name
-                        </Timeline.Item>
-                        <Timeline.Item>
-                          <img
-                            src={energy}
-                            style={{
-                              height: "15px",
-                              marginTop: "5px",
-                              marginRight: "10px",
-                            }}
-                          />
-                          Lesson name
-                        </Timeline.Item>
-                        <Timeline.Item>
-                          <img
-                            src={energy}
-                            style={{
-                              height: "15px",
-                              marginTop: "5px",
-                              marginRight: "10px",
-                            }}
-                          />
-                          <p style={{ color: "#605e67" }}>Lesson name</p>
-                        </Timeline.Item>
-                      </Timeline>
+                          <Link to="/quiz/maths/1/1" className='upper-case'>
+                            <p style={{ color: "#605e67" }}>Lesson name</p>
+                          </Link>
+                          <br/>
+                         </Timeline.Item> 
+                       </Timeline> 
                     </Card.Body>
                   </Accordion.Collapse>
                 </Card>
@@ -484,24 +439,11 @@ export default function Course() {
             </>
           ))}
         </div>
-     
       </body>
     </div>
   );
 }
 
-function LessonElement(props) {
-  const cssClass =
-    props.answered == true ? "lesson-element-answered" : "lesson-element";
-  return (
-    <div className="lesson-card">
-      <LessonTitle badge={props.badge} title={props.title} />
-      <Link to="/quiz/maths/1/1">
-        <img src={arrowdown} style={{ height: "10px", margin: "5px" }} />
-      </Link>
-    </div>
-  );
-}
 function LessonTitle(props) {
   return <p style={styles.lessonTitle}>{props.title}</p>;
 }
@@ -517,11 +459,14 @@ const styles = {
   },
   lessonTitle: {
     fontWeight: "500",
-    color: "#605F68",
+    color: "#b0e3ff",
     fontFamily: "din-round, sans-serif",
     margin: "0",
     textAlign: "center",
     fontSize: "1rem",
+    letterSpacing: '1px',
+    textTransform: 'uppercase',
+    fontWeight: 'bold'
   },
   trophy: {
     height: "30px",

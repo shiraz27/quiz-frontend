@@ -3,8 +3,9 @@ import React, { useState, useEffect } from "react";
 //packages
 import Dropdown from "react-bootstrap/Dropdown";
 import Form from "react-bootstrap/Form";
-import { Modal, Button } from "react-bootstrap/";
+import { Button } from "react-bootstrap/";
 import { Link } from "react-router-dom";
+import Modal from "react-modal";
 
 //resources
 import logo from "../img/logo.svg";
@@ -72,6 +73,7 @@ function NavbarTop() {
             </span> */}
           </Link>
         </span>
+
         {windowWidth >= 1000 ? (
           <Form>
             <Form.Group controlId="formBasicSearch">
@@ -101,7 +103,7 @@ function NavbarTop() {
             <img src={profile} style={styles.navElement} />
           </Dropdown.Toggle>
           <Dropdown.Menu>
-            <Dropdown.Item href="/me">MY ACCOUNT</Dropdown.Item>
+            <Dropdown.Item href="/me" className='color-blue'>MY ACCOUNT</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
       </div>
@@ -127,18 +129,55 @@ const styles = {
 export default NavbarTop;
 
 function Search() {
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  // const [show, setShow] = useState(false);
+  // const handleClose = () => setShow(false);
+  // const handleShow = () => setShow(true);
+  var subtitle;
+  const [modalIsOpen, setIsOpen] = React.useState(false);
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    //subtitle.style.color = "#f00";
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
   return (
     <>
-      <a onClick={handleShow}>
+      <a onClick={openModal}>
         <div className="search">
           <img src={search} style={{ height: "25px" }} />
         </div>
       </a>
-      <Modal show={show} onHide={handleClose}>
+      {/* <Modal show={show} onHide={handleClose}>
         <Form>
+          <Form.Group controlId="formBasicSearch">
+            <img
+              src={searchl}
+              style={{
+                height: "15px",
+                marginLeft: "15px",
+                marginRight: "15px",
+              }}
+            />
+            <Form.Control type="text" placeholder="Search" />
+          </Form.Group>
+        </Form>
+      </Modal> */}
+      <Modal
+        isOpen={modalIsOpen}
+        onAfterOpen={afterOpenModal}
+        onRequestClose={closeModal}
+        contentLabel="Example Modal"
+      >
+        {/* <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2> */}
+        <Form>
+        <br/>
+
           <Form.Group controlId="formBasicSearch">
             <img
               src={searchl}
