@@ -250,7 +250,9 @@ export default function Course() {
                               marginBottom: "5px",
                             }}
                           />
-                          <Link to="/quiz/maths/1/1" className='upper-case'>
+                          <Link to="/quiz/maths/1/1" 
+                          // className='upper-case'
+                          >
                             Lesson name read and write everything in Arabic
                           </Link>
                           <br/>
@@ -265,7 +267,9 @@ export default function Course() {
 
                             }}
                           />
-                          <Link to="/quiz/maths/1/1" className='upper-case'>Lesson name</Link>
+                          <Link to="/quiz/maths/1/1" 
+                          // className='upper-case'
+                          >Lesson name</Link>
                           <br/>
                         </Timeline.Item> 
                          <Timeline.Item>
@@ -278,7 +282,9 @@ export default function Course() {
 
                             }}
                           />
-                          <Link to="/quiz/maths/1/1" className='upper-case'>
+                          <Link to="/quiz/maths/1/1" 
+                          // className='upper-case'
+                          >
                             <p style={{ color: "#605e67" }}>Lesson name</p>
                           </Link>
                           <br/>
@@ -324,7 +330,9 @@ export default function Course() {
                               marginBottom: "5px",
                             }}
                           />
-                          <Link to="/quiz/maths/1/1" className='upper-case'>
+                          <Link to="/quiz/maths/1/1" 
+                          // className='upper-case'
+                          >
                             Lesson name read and write everything in Arabic
                           </Link>
                           <br/>
@@ -339,7 +347,9 @@ export default function Course() {
 
                             }}
                           />
-                          <Link to="/quiz/maths/1/1" className='upper-case'>Lesson name</Link>
+                          <Link to="/quiz/maths/1/1" 
+                          // className='upper-case'
+                          >Lesson name</Link>
                           <br/>
                         </Timeline.Item> 
                          <Timeline.Item>
@@ -352,7 +362,9 @@ export default function Course() {
 
                             }}
                           />
-                          <Link to="/quiz/maths/1/1" className='upper-case'>
+                          <Link to="/quiz/maths/1/1" 
+                          // className='upper-case'
+                          >
                             <p style={{ color: "#605e67" }}>Lesson name</p>
                           </Link>
                           <br/>
@@ -398,7 +410,9 @@ export default function Course() {
                               marginBottom: "5px",
                             }}
                           />
-                          <Link to="/quiz/maths/1/1" className='upper-case'>
+                          <Link to="/quiz/maths/1/1" 
+                          // className='upper-case'
+                          >
                             Lesson name read and write everything in Arabic
                           </Link>
                           <br/>
@@ -413,7 +427,9 @@ export default function Course() {
 
                             }}
                           />
-                          <Link to="/quiz/maths/1/1" className='upper-case'>Lesson name</Link>
+                          <Link to="/quiz/maths/1/1" 
+                          // className='upper-case'
+                          >Lesson name</Link>
                           <br/>
                         </Timeline.Item> 
                          <Timeline.Item>
@@ -426,7 +442,9 @@ export default function Course() {
 
                             }}
                           />
-                          <Link to="/quiz/maths/1/1" className='upper-case'>
+                          <Link to="/quiz/maths/1/1" 
+                          // className='upper-case'
+                          >
                             <p style={{ color: "#605e67" }}>Lesson name</p>
                           </Link>
                           <br/>

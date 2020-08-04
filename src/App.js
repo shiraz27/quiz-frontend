@@ -3,9 +3,13 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import './App.css';
 import Landing from './components/Landing';
 import Dashboard from './components/Dashboard';
-import Quiz from './components/Auiz';
+import Quiz from './components/Quiz';
 import Profile from './components/Profile';
-import Course from './components/course';
+import Course from './components/Course';
+import Search from './components/Search';
+import ResetPassword from './components/ResetPassword';
+import Login from './components/Login';
+import Register from './components/Register';
 
 function App() {
 	return (
@@ -22,6 +26,18 @@ function App() {
 				</Route>
 				<Route path="/me">
 					<Profile />
+				</Route>
+				<Route path="/search">
+					<Search />
+				</Route>
+				<Route path="/reset-password">
+					<ResetPassword />
+				</Route>
+				<Route path="/login">
+					<Login />
+				</Route>
+				<Route path="/register">
+					<Register />
 				</Route>
 				{/* <Route path="/login">
 					<Profile />

@@ -76,15 +76,17 @@ function NavbarTop() {
 
         {windowWidth >= 1000 ? (
           <Form>
-            <Form.Group controlId="formBasicSearch">
-              <img
-                src={searchl}
-                style={{
-                  height: "15px",
-                  marginLeft: "15px",
-                  marginRight: "15px",
-                }}
-              />
+            <Form.Group controlId="formBasicSearch" className="search-test">
+              <Link to="/search">
+                <img
+                  src={searchl}
+                  style={{
+                    height: "15px",
+                    marginLeft: "15px",
+                    marginRight: "15px",
+                  }}
+                />
+              </Link>
               <Form.Control type="text" placeholder="Search" />
             </Form.Group>
           </Form>
@@ -103,7 +105,9 @@ function NavbarTop() {
             <img src={profile} style={styles.navElement} />
           </Dropdown.Toggle>
           <Dropdown.Menu>
-            <Dropdown.Item href="/me" className='color-blue'>MY ACCOUNT</Dropdown.Item>
+            <Dropdown.Item href="/me" className="color-blue">
+              MY ACCOUNT
+            </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
       </div>
@@ -176,18 +180,23 @@ function Search() {
       >
         {/* <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2> */}
         <Form>
-        <br/>
-
+          <br />
           <Form.Group controlId="formBasicSearch">
-            <img
-              src={searchl}
-              style={{
-                height: "15px",
-                marginLeft: "15px",
-                marginRight: "15px",
-              }}
-            />
             <Form.Control type="text" placeholder="Search" />
+            <Link to="/search">
+              <img
+                src={searchl}
+                style={{
+                  marginTop: "5px",
+                  height: "50px",
+                  marginLeft: "30vw",
+                  marginRight: "30vw",
+                  borderRadius: "14px",
+                  background: "#f2fbfe",
+                  padding: "10px",
+                }}
+              />
+            </Link>
           </Form.Group>
         </Form>
       </Modal>
